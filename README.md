@@ -16,7 +16,7 @@ By building this infrastructure, we address three critical business pillars:
 ## 2. System Architecture Overview
 The system follows a **Decoupled Hybrid Architecture** (Lambda-inspired) running entirely within a **Dockerized Ecosystem**. This ensures that the real-time "Hot Path" is never bottlenecked by the analytical "Cold Path."
 
-![System Architecture](data struct.png)
+![System Architecture](/home/rwannada/smartflow/data struct.png)
 
 ---
 
