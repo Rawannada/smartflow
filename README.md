@@ -1,80 +1,81 @@
-# SmartFlow: Enterprise Logistics Intelligence & Real-Time Alerting Pipeline
-
-###  Project Vision
-In the high-stakes world of last-mile delivery (e.g., **Bosta**, **Noon**, **Amazon**), "Visibility" is the thin line between profit and loss. **SmartFlow** is an end-to-end data engineering ecosystem that transforms raw GPS pings and order lifecycle events into actionable business intelligence. The system proactively detects delivery bottlenecks and automates customer satisfaction workflows before delays escalate into cancellations.
+#  Real-Time Logistics Intelligence & Predictive Risk Management
+> **An Enterprise-Grade Hybrid Data Pipeline for Fleet Safety, Asset Protection, and Operational Excellence.**
 
 ---
 
-###  System Architecture
-The pipeline follows a **Modular Near Real-Time Batch Architecture** to balance high-performance processing with operational cost-efficiency.
+##  1. Business Strategy: Why This Project Matters?
+In the modern logistics and supply chain industry, a delayed insight is a "dead" insight. This project isn't just about moving data from point A to point B; it’s about **Real-Time Survival**. 
 
-
-
-1.  **Data Generation (The Street):** A custom **Python Multi-threaded Simulator** mimics 1,000+ couriers, generating real-time GPS coordinates, speed metrics, and order status updates.
-2.  **Landing Zone (Raw Storage):** Incoming events are persisted as partitioned **JSON** files, simulating a cloud-native Data Lake environment.
-3.  **Orchestration (The Brain):** **Apache Airflow** manages the end-to-end workflow, scheduling processing jobs every hour with built-in retry logic and data integrity checks.
-4.  **Processing (The Engine):** **Apache Spark (PySpark)** handles heavy-duty computations:
-    * **Geospatial Analysis:** Calculating Haversine distances between couriers and delivery targets.
-    * **Anomaly Detection:** Identifying "Critical Stalls" (Speed = 0 for >10 mins on orders valued > 1,000 EGP).
-5.  **Data Warehouse (The Truth):** **PostgreSQL** serves as the structured repository for enriched, cleaned, and categorized logistics data.
-6.  **Transformation (The Logic):** **dbt (Data Build Tool)** applies software engineering rigor to SQL, creating modular, tested tables for business reporting.
+By building this infrastructure, we address three critical business pillars:
+* **Asset Protection (High-Value Cargo):** We use "Geospatial Intelligence" to monitor expensive shipments (e.g., Electronics, Pharmaceuticals). If a courier stalls for more than 15 minutes with an order worth > 2000 EGP, the system flags a **Security Breach** immediately.
+* **Fleet Safety & Compliance:** Speeding is the #1 cause of cargo damage and accidents. Our system monitors real-time velocity to enforce company safety policies, reducing insurance costs and protecting lives.
+* **Customer Trust (SLA Integrity):** By predicting delays before they happen, the business can proactively update customers, turning a potential complaint into a positive touchpoint.
 
 ---
 
-###  Tech Stack
+## 2. System Architecture Overview
+The system follows a **Decoupled Hybrid Architecture** (Lambda-inspired) running entirely within a **Dockerized Ecosystem**. This ensures that the real-time "Hot Path" is never bottlenecked by the analytical "Cold Path."
 
-| Category | Technology | Purpose |
+![System Architecture](data struct.png)
+
+---
+
+##  3. Technical Deep-Dive (Component Breakdown)
+
+### 🛰️ 3.1. The Data Generation Layer (Simulators)
+Instead of static datasets, we use **Microservice Simulators** built in Python:
+* **Courier Telemetry Service:** Emulates IoT GPS devices on delivery vehicles, streaming `Latitude`, `Longitude`, `Current_Speed`, and `Direction`.
+* **Order Metadata Service:** Simulates the Order Management System (OMS), attaching context like `Order_Value`, `Customer_Priority`, and `Item_Type`.
+* **Kafka Integration:** Both simulators act as **Kafka Producers**, pushing JSON payloads to dedicated topics with 99.9% fault tolerance.
+
+### 3.2. The Processing Engine (Apache Spark Streaming)
+The heart of the system is **PySpark Structured Streaming**. It performs:
+* **In-Memory Joins:** Merges the Telemetry stream with the Order Metadata stream in real-time.
+* **Stateful Monitoring:** It doesn't just look at one point; it tracks the "State" of the courier over time to detect patterns (e.g., sustained high speed vs. a sudden stop).
+* **Immediate Alerting:** Once a threshold (Speed/Value/Time) is crossed, Spark triggers an external alert action (Email/Notification) **before** the data even hits the database.
+
+### 3.3. Orchestration & Analytics (Airflow, dbt, & Postgres)
+* **Apache Airflow:** Acts as the **Watchdog**. It monitors the Spark Streaming job for health and schedules the **dbt** transformation jobs.
+* **PostgreSQL (DW):** Serves as our **Analytical Warehouse**. It stores the refined data for long-term historical analysis.
+* **dbt (Data Build Tool):** The "Transformation Engine." It runs every hour to turn Raw tables into **Production Models** (e.g., `daily_risk_report`, `courier_efficiency_index`).
+
+---
+
+##  4. Real-Time Logic & Alerting Matrix
+The logic implemented in the Spark Engine is what defines the business value:
+
+| Risk Scenario | Trigger Condition | Stakeholder Notified |
 | :--- | :--- | :--- |
-| **Language** | Python 3.9+ | Simulation logic and PySpark scripting. |
-| **Orchestrator** | Apache Airflow | Workflow DAG scheduling and monitoring. |
-| **Processing** | Apache Spark | Distributed big data processing engine. |
-| **Modeling** | dbt (Core) | SQL modeling, testing, and documentation. |
-| **Database** | PostgreSQL | Centralized analytical storage. |
-| **DevOps** | Docker & Compose | Containerization for environment parity. |
+| **Overspeeding** | `speed > 100 km/h` for > 5 seconds | Fleet Supervisor |
+| **Potential Theft** | `speed == 0` & `duration > 15m` & `value > 2000` | Security Team |
+| **Route Deviation** | `coordinates` outside of planned `Geofence` | Ops Manager |
 
 ---
 
-###  Core Business Logic
-
-#### 1. Predictive Delay Detection
-The Spark engine doesn't just move data—it evaluates risk. A record is flagged as `URGENT_DELAY` if:
-`Speed == 0` **AND** `Elapsed Time > 10m` **AND** `Order Value > 1,000 EGP`
-This enables the business to prioritize high-value asset protection.
-
-#### 2. Geospatial Intelligence
-Using Latitude/Longitude pings, the system dynamically calculates the **Estimated Time of Arrival (ETA)**. Unlike static estimates, this is updated every batch based on the courier's real-time average moving speed.
-
-#### 3. Financial Risk Modeling
-Using **dbt**, we calculate **"Revenue at Risk"**—the total monetary value of all orders currently flagged with critical delays that are statistically likely to be canceled.
+##  5. Containerization & Networking Strategy
+The entire stack is orchestrated via **Docker Compose**, utilizing:
+* **Custom Bridge Network:** Enabling service discovery (e.g., Spark finds Kafka by its container name `kafka:9092`).
+* **Persistent Volumes:** Ensuring that PostgreSQL data and Kafka logs survive container restarts.
+* **Resource Management:** Dedicated CPU/RAM limits for Spark Workers to ensure stable real-time processing.
 
 ---
 
-###  Getting Started
-
-1.  **Clone the Repository:**
-    ```bash
-    git clone [https://github.com/Rawannada/smartflow](https://github.com/Rawannada/smartflow)
-    cd smartflow
-    ```
-2.  **Spin up Infrastructure:**
-    ```bash
-    docker-compose up -d
-    ```
-3.  **Initiate Simulator:**
-    ```bash
-    python src/simulator/courier_gen.py
-    ```
-4.  **Trigger Pipeline:** Access the Airflow UI at `localhost:8080` and enable the `logistics_hourly_processing` DAG.
+##  6. The Roadmap: Moving to the Cloud
+This architecture is **Cloud-Native by Design**. The next steps for production scaling include:
+1.  **Ingestion:** Migrating Local Kafka to **AWS MSK** or **Google Pub/Sub**.
+2.  **Processing:** Running Spark jobs on **Databricks** or **Amazon EMR**.
+3.  **Data Lake:** Storing historical raw data in **Amazon S3** (Parquet format) for future **Machine Learning** (e.g., predicting delivery ETA).
+4.  **Warehouse:** Swapping PostgreSQL for **Snowflake** or **Google BigQuery**.
 
 ---
 
-###  Roadmap
-* **ML Integration:** Deploying Spark MLlib to predict traffic congestion patterns.
-* **Live Monitoring:** Integrating **Streamlit** for a real-time fleet map visualization.
-* **Cloud Scaling:** Migrating the storage and compute to **AWS (S3, EMR, Redshift)**.
+##  7. Tech Stack Summary
+* **Core Engine:** Apache Spark (Structured Streaming), Apache Kafka.
+* **Data Ops:** Apache Airflow, dbt.
+* **Languages:** Python (PySpark), SQL.
+* **Database:** PostgreSQL.
+* **Infrastructure:** Docker, Docker Compose.
+* **Visualization:** Power BI Desktop.
 
 ---
-
-###  Author
-**Rawan Samy Nada**
-* Senior Computer Science Student @ Tanta University 
+**Developed with Passion by:** **Rawan Samy Nada** *Senior Information Systems Student | Tanta University* *Specializing in Big Data Engineering & Infrastructure*
