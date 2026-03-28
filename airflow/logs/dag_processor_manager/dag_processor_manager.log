@@ -1,0 +1,59 @@
+[2026-03-28T00:56:09.050+0000] {manager.py:487} INFO - Processing files using up to 2 processes at a time 
+[2026-03-28T00:56:09.051+0000] {manager.py:488} INFO - Process each file at most once every 30 seconds
+[2026-03-28T00:56:09.051+0000] {manager.py:489} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2026-03-28T00:56:09.051+0000] {manager.py:759} INFO - Searching for files in /opt/airflow/dags
+[2026-03-28T00:56:09.053+0000] {manager.py:762} INFO - There are 1 files in /opt/airflow/dags
+[2026-03-28T00:56:09.199+0000] {manager.py:893} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                             PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/smartflow_dag.py    170  0.06s             0           0
+================================================================================
+[2026-03-28T00:56:37.382+0000] {manager.py:893} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                           PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/smartflow_dag.py                           1           0  0.67s           2026-03-28T00:56:09
+================================================================================
+[2026-03-28T00:57:06.246+0000] {manager.py:893} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                           PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/smartflow_dag.py                           1           0  0.21s           2026-03-28T00:56:40
+================================================================================
+[2026-03-28T00:57:34.475+0000] {manager.py:893} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                           PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/smartflow_dag.py                           1           0  0.17s           2026-03-28T00:57:10
+================================================================================
+[2026-03-28T00:57:41.550+0000] {manager.py:469} INFO - Exiting gracefully upon receiving signal 15
+[2026-03-28T00:58:16.771+0000] {manager.py:487} INFO - Processing files using up to 2 processes at a time 
+[2026-03-28T00:58:16.783+0000] {manager.py:488} INFO - Process each file at most once every 30 seconds
+[2026-03-28T00:58:16.784+0000] {manager.py:489} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2026-03-28T00:58:16.784+0000] {manager.py:759} INFO - Searching for files in /opt/airflow/dags
+[2026-03-28T00:58:16.786+0000] {manager.py:762} INFO - There are 1 files in /opt/airflow/dags
+[2026-03-28T00:58:16.899+0000] {manager.py:893} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                             PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/smartflow_dag.py    170  0.05s             0           0
+================================================================================
+[2026-03-28T00:58:45.202+0000] {manager.py:893} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                           PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+----------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/smartflow_dag.py                           1           0  0.53s           2026-03-28T00:58:17
+================================================================================

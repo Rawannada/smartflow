@@ -1,0 +1,44 @@
+[0m01:28:39.349212 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x715ab1338dc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x715aaef07c40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x715aaef07be0>]}
+
+
+============================== 01:28:39.353941 | 1a16fa4d-6622-451e-9c3b-95603db967ad ==============================
+[0m01:28:39.353941 [info ] [MainThread]: Running with dbt=1.7.0
+[0m01:28:39.354577 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'cache_selected_only': 'False', 'partial_parse': 'True', 'invocation_command': 'dbt init dbt_logistics', 'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'use_experimental_parser': 'False', 'debug': 'False', 'no_print': 'None', 'introspect': 'True', 'profiles_dir': '/home/rwannada/.dbt', 'send_anonymous_usage_stats': 'True', 'log_format': 'default', 'static_parser': 'True', 'use_colors': 'True', 'warn_error': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'log_cache_events': 'False', 'target_path': 'None', 'fail_fast': 'False', 'log_path': 'logs', 'quiet': 'False'}
+[0m01:28:39.355145 [warn ] [MainThread]: [ConfigFolderDirectory]: Unable to parse dict {'dir': PosixPath('/home/rwannada/.dbt')}
+[0m01:28:39.355647 [info ] [MainThread]: Creating dbt configuration folder at 
+[0m01:28:39.358933 [debug] [MainThread]: Starter project path: /home/rwannada/miniconda3/envs/smartflow_env/lib/python3.9/site-packages/dbt/include/starter_project
+[0m01:28:39.368021 [info ] [MainThread]: 
+Your new dbt project "dbt_logistics" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m01:28:39.368574 [info ] [MainThread]: Setting up your profile.
+[0m01:28:49.952464 [info ] [MainThread]: Profile dbt_logistics written to /home/rwannada/.dbt/profiles.yml using target's sample configuration. Once updated, you'll be able to start developing with dbt.
+[0m01:28:49.954163 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x715ab1338dc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x715aae5a9190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x715aae557940>]}
+[0m01:28:49.954913 [debug] [MainThread]: Flushing usage events
+[0m01:34:59.818939 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7083516b5280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70834edae730>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70834ee09d90>]}
+
+
+============================== 01:34:59.821172 | e81ccd35-3549-4ac2-8857-12653753469a ==============================
+[0m01:34:59.821172 [info ] [MainThread]: Running with dbt=1.7.0
+[0m01:34:59.822210 [debug] [MainThread]: running dbt with arguments {'partial_parse': 'True', 'no_print': 'None', 'fail_fast': 'False', 'introspect': 'True', 'debug': 'False', 'log_cache_events': 'False', 'write_json': 'True', 'use_experimental_parser': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'profiles_dir': '/home/rwannada/.dbt', 'quiet': 'False', 'static_parser': 'True', 'use_colors': 'True', 'log_path': 'logs', 'cache_selected_only': 'False', 'indirect_selection': 'eager', 'warn_error': 'None', 'send_anonymous_usage_stats': 'True', 'version_check': 'True', 'log_format': 'default', 'invocation_command': 'dbt run', 'printer_width': '80', 'target_path': 'None'}
+[0m01:34:59.823753 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/rwannada/smartflow/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m01:34:59.825523 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 0.05103354, "process_user_time": 1.738484, "process_kernel_time": 0.116399, "process_mem_max_rss": "101404", "process_out_blocks": "24", "command_success": false, "process_in_blocks": "0"}
+[0m01:34:59.826240 [debug] [MainThread]: Command `dbt run` failed at 01:34:59.825985 after 0.05 seconds
+[0m01:34:59.826796 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7083516b5280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70834edae6a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70834ee09d60>]}
+[0m01:34:59.827413 [debug] [MainThread]: Flushing usage events

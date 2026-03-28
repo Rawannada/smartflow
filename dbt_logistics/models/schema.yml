@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: courier_performance
+    description: "Table analyzing courier speeds and alerts"
+    columns:
+      - name: courier_id
+        description: "Unique identifier for the courier"
+        tests:
+          - not_null
+          - unique
+
+      - name: average_speed
+        description: "Average speed recorded for high risk events"
+        tests:
+          - not_null
