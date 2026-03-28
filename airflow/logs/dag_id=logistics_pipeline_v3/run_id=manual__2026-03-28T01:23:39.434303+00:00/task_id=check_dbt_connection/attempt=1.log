@@ -1,0 +1,45 @@
+[2026-03-28T01:23:41.752+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: logistics_pipeline_v3.check_dbt_connection manual__2026-03-28T01:23:39.434303+00:00 [queued]>
+[2026-03-28T01:23:41.774+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: logistics_pipeline_v3.check_dbt_connection manual__2026-03-28T01:23:39.434303+00:00 [queued]>
+[2026-03-28T01:23:41.775+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2026-03-28T01:23:41.811+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): check_dbt_connection> on 2026-03-28 01:23:39.434303+00:00
+[2026-03-28T01:23:41.830+0000] {standard_task_runner.py:57} INFO - Started process 531 to run task
+[2026-03-28T01:23:41.842+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'logistics_pipeline_v3', 'check_dbt_connection', 'manual__2026-03-28T01:23:39.434303+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/smartflow_dag.py', '--cfg-path', '/tmp/tmpbtfxiutg']
+[2026-03-28T01:23:41.852+0000] {standard_task_runner.py:85} INFO - Job 6: Subtask check_dbt_connection
+[2026-03-28T01:23:42.036+0000] {task_command.py:415} INFO - Running <TaskInstance: logistics_pipeline_v3.check_dbt_connection manual__2026-03-28T01:23:39.434303+00:00 [running]> on host 22aa927a5017
+[2026-03-28T01:23:42.306+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Rawan' AIRFLOW_CTX_DAG_ID='logistics_pipeline_v3' AIRFLOW_CTX_TASK_ID='check_dbt_connection' AIRFLOW_CTX_EXECUTION_DATE='2026-03-28T01:23:39.434303+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-28T01:23:39.434303+00:00'
+[2026-03-28T01:23:42.309+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-28T01:23:42.314+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'export PATH=$PATH:/root/.local/bin && cd /opt/airflow/dbt_project && dbt debug --profiles-dir .']
+[2026-03-28T01:23:42.343+0000] {subprocess.py:86} INFO - Output:
+[2026-03-28T01:23:48.347+0000] {subprocess.py:93} INFO - [0m01:23:48  Running with dbt=1.8.2
+[2026-03-28T01:23:48.377+0000] {subprocess.py:93} INFO - [0m01:23:48  dbt version: 1.8.2
+[2026-03-28T01:23:48.378+0000] {subprocess.py:93} INFO - [0m01:23:48  python version: 3.8.18
+[2026-03-28T01:23:48.379+0000] {subprocess.py:93} INFO - [0m01:23:48  python path: /usr/local/bin/python3
+[2026-03-28T01:23:48.381+0000] {subprocess.py:93} INFO - [0m01:23:48  os info: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.2.5
+[2026-03-28T01:23:48.390+0000] {subprocess.py:93} INFO - [0m01:23:48  Using profiles dir at .
+[2026-03-28T01:23:48.391+0000] {subprocess.py:93} INFO - [0m01:23:48  Using profiles.yml file at ./profiles.yml
+[2026-03-28T01:23:48.393+0000] {subprocess.py:93} INFO - [0m01:23:48  Using dbt_project.yml file at /opt/airflow/dbt_project/dbt_project.yml
+[2026-03-28T01:23:48.759+0000] {subprocess.py:93} INFO - [0m01:23:48  Configuration:
+[2026-03-28T01:23:48.761+0000] {subprocess.py:93} INFO - [0m01:23:48    profiles.yml file [[31mERROR invalid[0m]
+[2026-03-28T01:23:48.764+0000] {subprocess.py:93} INFO - [0m01:23:48    dbt_project.yml file [[32mOK found and valid[0m]
+[2026-03-28T01:23:48.764+0000] {subprocess.py:93} INFO - [0m01:23:48  Required dependencies:
+[2026-03-28T01:23:48.778+0000] {subprocess.py:93} INFO - [0m01:23:48   - git [[31mERROR[0m]
+[2026-03-28T01:23:48.779+0000] {subprocess.py:93} INFO - 
+[2026-03-28T01:23:48.784+0000] {subprocess.py:93} INFO - [0m01:23:48  Connection test skipped since no profile was found
+[2026-03-28T01:23:48.784+0000] {subprocess.py:93} INFO - [0m01:23:48  [31m2 checks failed:[0m
+[2026-03-28T01:23:48.785+0000] {subprocess.py:93} INFO - [0m01:23:48  Profile loading failed for the following reason:
+[2026-03-28T01:23:48.785+0000] {subprocess.py:93} INFO - Runtime Error
+[2026-03-28T01:23:48.785+0000] {subprocess.py:93} INFO -   Could not find profile named 'dbt_logistics'
+[2026-03-28T01:23:48.786+0000] {subprocess.py:93} INFO - 
+[2026-03-28T01:23:48.786+0000] {subprocess.py:93} INFO - 
+[2026-03-28T01:23:48.787+0000] {subprocess.py:93} INFO - [0m01:23:48  Error from git --help: User does not have permissions for this command: "git"
+[2026-03-28T01:23:48.787+0000] {subprocess.py:93} INFO - 
+[2026-03-28T01:23:50.069+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-03-28T01:23:50.087+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-03-28T01:23:50.092+0000] {taskinstance.py:1398} INFO - Marking task as UP_FOR_RETRY. dag_id=logistics_pipeline_v3, task_id=check_dbt_connection, execution_date=20260328T012339, start_date=20260328T012341, end_date=20260328T012350
+[2026-03-28T01:23:50.113+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 6 for task check_dbt_connection (Bash command failed. The command returned a non-zero exit code 1.; 531)
+[2026-03-28T01:23:50.126+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2026-03-28T01:23:50.156+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

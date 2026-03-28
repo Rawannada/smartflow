@@ -1,0 +1,55 @@
+[2026-03-28T01:35:14.503+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: logistics_pipeline_v3.check_dbt_connection manual__2026-03-28T01:35:12.153121+00:00 [queued]>
+[2026-03-28T01:35:14.525+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: logistics_pipeline_v3.check_dbt_connection manual__2026-03-28T01:35:12.153121+00:00 [queued]>
+[2026-03-28T01:35:14.525+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2026-03-28T01:35:14.557+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): check_dbt_connection> on 2026-03-28 01:35:12.153121+00:00
+[2026-03-28T01:35:14.570+0000] {standard_task_runner.py:57} INFO - Started process 753 to run task
+[2026-03-28T01:35:14.584+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'logistics_pipeline_v3', 'check_dbt_connection', 'manual__2026-03-28T01:35:12.153121+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/smartflow_dag.py', '--cfg-path', '/tmp/tmpdfj8p867']
+[2026-03-28T01:35:14.589+0000] {standard_task_runner.py:85} INFO - Job 17: Subtask check_dbt_connection
+[2026-03-28T01:35:14.741+0000] {task_command.py:415} INFO - Running <TaskInstance: logistics_pipeline_v3.check_dbt_connection manual__2026-03-28T01:35:12.153121+00:00 [running]> on host 22aa927a5017
+[2026-03-28T01:35:14.971+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Rawan' AIRFLOW_CTX_DAG_ID='logistics_pipeline_v3' AIRFLOW_CTX_TASK_ID='check_dbt_connection' AIRFLOW_CTX_EXECUTION_DATE='2026-03-28T01:35:12.153121+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-28T01:35:12.153121+00:00'
+[2026-03-28T01:35:14.974+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-28T01:35:14.979+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/airflow/dbt_project && dbt debug --profiles-dir . || echo "Ignore Git Error"']
+[2026-03-28T01:35:15.001+0000] {subprocess.py:86} INFO - Output:
+[2026-03-28T01:35:20.090+0000] {subprocess.py:93} INFO - [0m01:35:20  Running with dbt=1.8.2
+[2026-03-28T01:35:20.114+0000] {subprocess.py:93} INFO - [0m01:35:20  dbt version: 1.8.2
+[2026-03-28T01:35:20.118+0000] {subprocess.py:93} INFO - [0m01:35:20  python version: 3.8.18
+[2026-03-28T01:35:20.119+0000] {subprocess.py:93} INFO - [0m01:35:20  python path: /usr/local/bin/python3
+[2026-03-28T01:35:20.119+0000] {subprocess.py:93} INFO - [0m01:35:20  os info: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.2.5
+[2026-03-28T01:35:20.279+0000] {subprocess.py:93} INFO - [0m01:35:20  Using profiles dir at .
+[2026-03-28T01:35:20.280+0000] {subprocess.py:93} INFO - [0m01:35:20  Using profiles.yml file at ./profiles.yml
+[2026-03-28T01:35:20.280+0000] {subprocess.py:93} INFO - [0m01:35:20  Using dbt_project.yml file at /opt/airflow/dbt_project/dbt_project.yml
+[2026-03-28T01:35:20.282+0000] {subprocess.py:93} INFO - [0m01:35:20  adapter type: postgres
+[2026-03-28T01:35:20.283+0000] {subprocess.py:93} INFO - [0m01:35:20  adapter version: 1.8.2
+[2026-03-28T01:35:20.594+0000] {subprocess.py:93} INFO - [0m01:35:20  Configuration:
+[2026-03-28T01:35:20.595+0000] {subprocess.py:93} INFO - [0m01:35:20    profiles.yml file [[32mOK found and valid[0m]
+[2026-03-28T01:35:20.595+0000] {subprocess.py:93} INFO - [0m01:35:20    dbt_project.yml file [[32mOK found and valid[0m]
+[2026-03-28T01:35:20.595+0000] {subprocess.py:93} INFO - [0m01:35:20  Required dependencies:
+[2026-03-28T01:35:20.609+0000] {subprocess.py:93} INFO - [0m01:35:20   - git [[31mERROR[0m]
+[2026-03-28T01:35:20.610+0000] {subprocess.py:93} INFO - 
+[2026-03-28T01:35:20.618+0000] {subprocess.py:93} INFO - [0m01:35:20  Connection:
+[2026-03-28T01:35:20.620+0000] {subprocess.py:93} INFO - [0m01:35:20    host: postgres
+[2026-03-28T01:35:20.621+0000] {subprocess.py:93} INFO - [0m01:35:20    port: 5432
+[2026-03-28T01:35:20.621+0000] {subprocess.py:93} INFO - [0m01:35:20    user: admin
+[2026-03-28T01:35:20.622+0000] {subprocess.py:93} INFO - [0m01:35:20    database: logistics_db
+[2026-03-28T01:35:20.622+0000] {subprocess.py:93} INFO - [0m01:35:20    schema: public
+[2026-03-28T01:35:20.624+0000] {subprocess.py:93} INFO - [0m01:35:20    connect_timeout: 10
+[2026-03-28T01:35:20.624+0000] {subprocess.py:93} INFO - [0m01:35:20    role: None
+[2026-03-28T01:35:20.624+0000] {subprocess.py:93} INFO - [0m01:35:20    search_path: None
+[2026-03-28T01:35:20.625+0000] {subprocess.py:93} INFO - [0m01:35:20    keepalives_idle: 0
+[2026-03-28T01:35:20.625+0000] {subprocess.py:93} INFO - [0m01:35:20    sslmode: None
+[2026-03-28T01:35:20.625+0000] {subprocess.py:93} INFO - [0m01:35:20    sslcert: None
+[2026-03-28T01:35:20.626+0000] {subprocess.py:93} INFO - [0m01:35:20    sslkey: None
+[2026-03-28T01:35:20.627+0000] {subprocess.py:93} INFO - [0m01:35:20    sslrootcert: None
+[2026-03-28T01:35:20.628+0000] {subprocess.py:93} INFO - [0m01:35:20    application_name: dbt
+[2026-03-28T01:35:20.634+0000] {subprocess.py:93} INFO - [0m01:35:20    retries: 1
+[2026-03-28T01:35:20.636+0000] {subprocess.py:93} INFO - [0m01:35:20  Registered adapter: postgres=1.8.2
+[2026-03-28T01:35:20.771+0000] {subprocess.py:93} INFO - [0m01:35:20    Connection test: [[32mOK connection ok[0m]
+[2026-03-28T01:35:20.772+0000] {subprocess.py:93} INFO - 
+[2026-03-28T01:35:20.773+0000] {subprocess.py:93} INFO - [0m01:35:20  [31m1 check failed:[0m
+[2026-03-28T01:35:20.777+0000] {subprocess.py:93} INFO - [0m01:35:20  Error from git --help: User does not have permissions for this command: "git"
+[2026-03-28T01:35:20.778+0000] {subprocess.py:93} INFO - 
+[2026-03-28T01:35:29.063+0000] {subprocess.py:93} INFO - Ignore Git Error
+[2026-03-28T01:35:29.070+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-03-28T01:35:29.121+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=logistics_pipeline_v3, task_id=check_dbt_connection, execution_date=20260328T013512, start_date=20260328T013514, end_date=20260328T013529
+[2026-03-28T01:35:29.790+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2026-03-28T01:35:29.822+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

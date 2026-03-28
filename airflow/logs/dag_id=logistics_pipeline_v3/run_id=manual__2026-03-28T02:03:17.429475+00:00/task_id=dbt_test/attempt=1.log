@@ -1,0 +1,64 @@
+[2026-03-28T02:03:46.876+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: logistics_pipeline_v3.dbt_test manual__2026-03-28T02:03:17.429475+00:00 [queued]>
+[2026-03-28T02:03:46.883+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: logistics_pipeline_v3.dbt_test manual__2026-03-28T02:03:17.429475+00:00 [queued]>
+[2026-03-28T02:03:46.884+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2026-03-28T02:03:46.898+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): dbt_test> on 2026-03-28 02:03:17.429475+00:00
+[2026-03-28T02:03:46.902+0000] {standard_task_runner.py:57} INFO - Started process 343 to run task
+[2026-03-28T02:03:46.906+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'logistics_pipeline_v3', 'dbt_test', 'manual__2026-03-28T02:03:17.429475+00:00', '--job-id', '32', '--raw', '--subdir', 'DAGS_FOLDER/smartflow_dag.py', '--cfg-path', '/tmp/tmpy935kyyd']
+[2026-03-28T02:03:46.908+0000] {standard_task_runner.py:85} INFO - Job 32: Subtask dbt_test
+[2026-03-28T02:03:46.965+0000] {task_command.py:415} INFO - Running <TaskInstance: logistics_pipeline_v3.dbt_test manual__2026-03-28T02:03:17.429475+00:00 [running]> on host 22aa927a5017
+[2026-03-28T02:03:47.039+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Rawan' AIRFLOW_CTX_DAG_ID='logistics_pipeline_v3' AIRFLOW_CTX_TASK_ID='dbt_test' AIRFLOW_CTX_EXECUTION_DATE='2026-03-28T02:03:17.429475+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-28T02:03:17.429475+00:00'
+[2026-03-28T02:03:47.040+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-28T02:03:47.041+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/airflow/dbt_project && dbt test --profiles-dir .']
+[2026-03-28T02:03:47.051+0000] {subprocess.py:86} INFO - Output:
+[2026-03-28T02:03:47.633+0000] {subprocess.py:93} INFO - [0m02:03:47  Running with dbt=1.8.2
+[2026-03-28T02:03:47.897+0000] {subprocess.py:93} INFO - [0m02:03:47  Registered adapter: postgres=1.8.2
+[2026-03-28T02:03:48.298+0000] {subprocess.py:93} INFO - [0m02:03:48  Found 1 model, 3 data tests, 423 macros
+[2026-03-28T02:03:48.303+0000] {subprocess.py:93} INFO - [0m02:03:48
+[2026-03-28T02:03:48.479+0000] {subprocess.py:93} INFO - [0m02:03:48  Concurrency: 4 threads (target='dev')
+[2026-03-28T02:03:48.480+0000] {subprocess.py:93} INFO - [0m02:03:48
+[2026-03-28T02:03:48.496+0000] {subprocess.py:93} INFO - [0m02:03:48  1 of 3 START test not_null_courier_performance_avg_speed ....................... [RUN]
+[2026-03-28T02:03:48.499+0000] {subprocess.py:93} INFO - [0m02:03:48  2 of 3 START test not_null_courier_performance_courier_id ...................... [RUN]
+[2026-03-28T02:03:48.503+0000] {subprocess.py:93} INFO - [0m02:03:48  3 of 3 START test unique_courier_performance_courier_id ........................ [RUN]
+[2026-03-28T02:03:48.558+0000] {subprocess.py:93} INFO - [0m02:03:48  3 of 3 ERROR unique_courier_performance_courier_id ............................. [[31mERROR[0m in 0.05s]
+[2026-03-28T02:03:48.560+0000] {subprocess.py:93} INFO - [0m02:03:48  2 of 3 ERROR not_null_courier_performance_courier_id ........................... [[31mERROR[0m in 0.06s]
+[2026-03-28T02:03:48.562+0000] {subprocess.py:93} INFO - [0m02:03:48  1 of 3 ERROR not_null_courier_performance_avg_speed ............................ [[31mERROR[0m in 0.06s]
+[2026-03-28T02:03:48.591+0000] {subprocess.py:93} INFO - [0m02:03:48
+[2026-03-28T02:03:48.592+0000] {subprocess.py:93} INFO - [0m02:03:48  Finished running 3 data tests in 0 hours 0 minutes and 0.29 seconds (0.29s).
+[2026-03-28T02:03:48.646+0000] {subprocess.py:93} INFO - [0m02:03:48
+[2026-03-28T02:03:48.647+0000] {subprocess.py:93} INFO - [0m02:03:48  [31mCompleted with 3 errors and 0 warnings:[0m
+[2026-03-28T02:03:48.651+0000] {subprocess.py:93} INFO - [0m02:03:48
+[2026-03-28T02:03:48.652+0000] {subprocess.py:93} INFO - [0m02:03:48    Compilation Error in test unique_courier_performance_courier_id (models/schema.yml)
+[2026-03-28T02:03:48.652+0000] {subprocess.py:93} INFO -   dbt was unable to infer all dependencies for the model "unique_courier_performance_courier_id".
+[2026-03-28T02:03:48.652+0000] {subprocess.py:93} INFO -   This typically happens when ref() is placed within a conditional block.
+[2026-03-28T02:03:48.653+0000] {subprocess.py:93} INFO - 
+[2026-03-28T02:03:48.653+0000] {subprocess.py:93} INFO -   To fix this, add the following hint to the top of the model "unique_courier_performance_courier_id":
+[2026-03-28T02:03:48.653+0000] {subprocess.py:93} INFO - 
+[2026-03-28T02:03:48.653+0000] {subprocess.py:93} INFO -   -- depends_on: {{ ref('courier_performance') }}
+[2026-03-28T02:03:48.653+0000] {subprocess.py:93} INFO - [0m02:03:48
+[2026-03-28T02:03:48.654+0000] {subprocess.py:93} INFO - [0m02:03:48    Compilation Error in test not_null_courier_performance_avg_speed (models/schema.yml)
+[2026-03-28T02:03:48.654+0000] {subprocess.py:93} INFO -   dbt was unable to infer all dependencies for the model "not_null_courier_performance_avg_speed".
+[2026-03-28T02:03:48.654+0000] {subprocess.py:93} INFO -   This typically happens when ref() is placed within a conditional block.
+[2026-03-28T02:03:48.654+0000] {subprocess.py:93} INFO - 
+[2026-03-28T02:03:48.654+0000] {subprocess.py:93} INFO -   To fix this, add the following hint to the top of the model "not_null_courier_performance_avg_speed":
+[2026-03-28T02:03:48.654+0000] {subprocess.py:93} INFO - 
+[2026-03-28T02:03:48.654+0000] {subprocess.py:93} INFO -   -- depends_on: {{ ref('courier_performance') }}
+[2026-03-28T02:03:48.655+0000] {subprocess.py:93} INFO - [0m02:03:48
+[2026-03-28T02:03:48.655+0000] {subprocess.py:93} INFO - [0m02:03:48    Compilation Error in test not_null_courier_performance_courier_id (models/schema.yml)
+[2026-03-28T02:03:48.655+0000] {subprocess.py:93} INFO -   dbt was unable to infer all dependencies for the model "not_null_courier_performance_courier_id".
+[2026-03-28T02:03:48.655+0000] {subprocess.py:93} INFO -   This typically happens when ref() is placed within a conditional block.
+[2026-03-28T02:03:48.655+0000] {subprocess.py:93} INFO - 
+[2026-03-28T02:03:48.655+0000] {subprocess.py:93} INFO -   To fix this, add the following hint to the top of the model "not_null_courier_performance_courier_id":
+[2026-03-28T02:03:48.656+0000] {subprocess.py:93} INFO - 
+[2026-03-28T02:03:48.656+0000] {subprocess.py:93} INFO -   -- depends_on: {{ ref('courier_performance') }}
+[2026-03-28T02:03:48.656+0000] {subprocess.py:93} INFO - [0m02:03:48
+[2026-03-28T02:03:48.656+0000] {subprocess.py:93} INFO - [0m02:03:48  Done. PASS=0 WARN=0 ERROR=3 SKIP=0 TOTAL=3
+[2026-03-28T02:03:51.518+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-03-28T02:03:51.544+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-03-28T02:03:51.550+0000] {taskinstance.py:1398} INFO - Marking task as UP_FOR_RETRY. dag_id=logistics_pipeline_v3, task_id=dbt_test, execution_date=20260328T020317, start_date=20260328T020346, end_date=20260328T020351
+[2026-03-28T02:03:51.576+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 32 for task dbt_test (Bash command failed. The command returned a non-zero exit code 1.; 343)
+[2026-03-28T02:03:51.829+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2026-03-28T02:03:51.878+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

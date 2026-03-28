@@ -1,0 +1,59 @@
+[2026-03-28T02:06:41.549+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: logistics_pipeline_v3.dbt_test manual__2026-03-28T02:01:11.132806+00:00 [queued]>
+[2026-03-28T02:06:41.561+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: logistics_pipeline_v3.dbt_test manual__2026-03-28T02:01:11.132806+00:00 [queued]>
+[2026-03-28T02:06:41.562+0000] {taskinstance.py:1359} INFO - Starting attempt 2 of 2
+[2026-03-28T02:06:41.579+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): dbt_test> on 2026-03-28 02:01:11.132806+00:00
+[2026-03-28T02:06:41.586+0000] {standard_task_runner.py:57} INFO - Started process 381 to run task
+[2026-03-28T02:06:41.592+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'logistics_pipeline_v3', 'dbt_test', 'manual__2026-03-28T02:01:11.132806+00:00', '--job-id', '33', '--raw', '--subdir', 'DAGS_FOLDER/smartflow_dag.py', '--cfg-path', '/tmp/tmp_ew14cqt']
+[2026-03-28T02:06:41.595+0000] {standard_task_runner.py:85} INFO - Job 33: Subtask dbt_test
+[2026-03-28T02:06:41.688+0000] {task_command.py:415} INFO - Running <TaskInstance: logistics_pipeline_v3.dbt_test manual__2026-03-28T02:01:11.132806+00:00 [running]> on host 22aa927a5017
+[2026-03-28T02:06:41.821+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Rawan' AIRFLOW_CTX_DAG_ID='logistics_pipeline_v3' AIRFLOW_CTX_TASK_ID='dbt_test' AIRFLOW_CTX_EXECUTION_DATE='2026-03-28T02:01:11.132806+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-28T02:01:11.132806+00:00'
+[2026-03-28T02:06:41.823+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-28T02:06:41.824+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/airflow/dbt_project && dbt test --profiles-dir .']
+[2026-03-28T02:06:41.837+0000] {subprocess.py:86} INFO - Output:
+[2026-03-28T02:06:45.411+0000] {subprocess.py:93} INFO - [0m02:06:45  Running with dbt=1.8.2
+[2026-03-28T02:06:45.695+0000] {subprocess.py:93} INFO - [0m02:06:45  Registered adapter: postgres=1.8.2
+[2026-03-28T02:06:46.121+0000] {subprocess.py:93} INFO - [0m02:06:46  [[33mWARNING[0m]: Deprecated functionality
+[2026-03-28T02:06:46.122+0000] {subprocess.py:93} INFO - The `tests` config has been renamed to `data_tests`. Please see
+[2026-03-28T02:06:46.122+0000] {subprocess.py:93} INFO - https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+[2026-03-28T02:06:46.122+0000] {subprocess.py:93} INFO - information.
+[2026-03-28T02:06:46.582+0000] {subprocess.py:93} INFO - [0m02:06:46  Encountered an error:
+[2026-03-28T02:06:46.583+0000] {subprocess.py:93} INFO - Found a cycle: model.dbt_logistics.courier_performance
+[2026-03-28T02:06:46.591+0000] {subprocess.py:93} INFO - [0m02:06:46  Traceback (most recent call last):
+[2026-03-28T02:06:46.592+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.8/site-packages/dbt/cli/requires.py", line 138, in wrapper
+[2026-03-28T02:06:46.592+0000] {subprocess.py:93} INFO -     result, success = func(*args, **kwargs)
+[2026-03-28T02:06:46.592+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.8/site-packages/dbt/cli/requires.py", line 101, in wrapper
+[2026-03-28T02:06:46.593+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-03-28T02:06:46.594+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.8/site-packages/dbt/cli/requires.py", line 218, in wrapper
+[2026-03-28T02:06:46.594+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-03-28T02:06:46.594+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.8/site-packages/dbt/cli/requires.py", line 247, in wrapper
+[2026-03-28T02:06:46.594+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-03-28T02:06:46.594+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.8/site-packages/dbt/cli/requires.py", line 294, in wrapper
+[2026-03-28T02:06:46.595+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-03-28T02:06:46.595+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.8/site-packages/dbt/cli/requires.py", line 332, in wrapper
+[2026-03-28T02:06:46.595+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-03-28T02:06:46.595+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.8/site-packages/dbt/cli/main.py", line 816, in test
+[2026-03-28T02:06:46.595+0000] {subprocess.py:93} INFO -     results = task.run()
+[2026-03-28T02:06:46.595+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.8/site-packages/dbt/task/runnable.py", line 506, in run
+[2026-03-28T02:06:46.596+0000] {subprocess.py:93} INFO -     self._runtime_initialize()
+[2026-03-28T02:06:46.596+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.8/site-packages/dbt/task/compile.py", line 125, in _runtime_initialize
+[2026-03-28T02:06:46.596+0000] {subprocess.py:93} INFO -     super()._runtime_initialize()
+[2026-03-28T02:06:46.596+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.8/site-packages/dbt/task/runnable.py", line 147, in _runtime_initialize
+[2026-03-28T02:06:46.597+0000] {subprocess.py:93} INFO -     self.compile_manifest()
+[2026-03-28T02:06:46.597+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.8/site-packages/dbt/task/base.py", line 145, in compile_manifest
+[2026-03-28T02:06:46.597+0000] {subprocess.py:93} INFO -     self.graph = self.compiler.compile(self.manifest)
+[2026-03-28T02:06:46.598+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.8/site-packages/dbt/compilation.py", line 449, in compile
+[2026-03-28T02:06:46.598+0000] {subprocess.py:93} INFO -     linker.link_graph(manifest)
+[2026-03-28T02:06:46.598+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.8/site-packages/dbt/compilation.py", line 192, in link_graph
+[2026-03-28T02:06:46.598+0000] {subprocess.py:93} INFO -     raise RuntimeError("Found a cycle: {}".format(cycle))
+[2026-03-28T02:06:46.598+0000] {subprocess.py:93} INFO - RuntimeError: Found a cycle: model.dbt_logistics.courier_performance
+[2026-03-28T02:06:46.599+0000] {subprocess.py:93} INFO - 
+[2026-03-28T02:06:52.260+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2026-03-28T02:06:52.283+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2026-03-28T02:06:52.291+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=logistics_pipeline_v3, task_id=dbt_test, execution_date=20260328T020111, start_date=20260328T020641, end_date=20260328T020652
+[2026-03-28T02:06:52.314+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 33 for task dbt_test (Bash command failed. The command returned a non-zero exit code 2.; 381)
+[2026-03-28T02:06:52.339+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2026-03-28T02:06:52.373+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

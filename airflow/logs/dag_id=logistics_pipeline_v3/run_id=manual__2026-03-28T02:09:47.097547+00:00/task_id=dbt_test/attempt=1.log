@@ -1,0 +1,34 @@
+[2026-03-28T02:10:10.731+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: logistics_pipeline_v3.dbt_test manual__2026-03-28T02:09:47.097547+00:00 [queued]>
+[2026-03-28T02:10:10.745+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: logistics_pipeline_v3.dbt_test manual__2026-03-28T02:09:47.097547+00:00 [queued]>
+[2026-03-28T02:10:10.745+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2026-03-28T02:10:10.767+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): dbt_test> on 2026-03-28 02:09:47.097547+00:00
+[2026-03-28T02:10:10.773+0000] {standard_task_runner.py:57} INFO - Started process 496 to run task
+[2026-03-28T02:10:10.778+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'logistics_pipeline_v3', 'dbt_test', 'manual__2026-03-28T02:09:47.097547+00:00', '--job-id', '40', '--raw', '--subdir', 'DAGS_FOLDER/smartflow_dag.py', '--cfg-path', '/tmp/tmp_hh57x1m']
+[2026-03-28T02:10:10.781+0000] {standard_task_runner.py:85} INFO - Job 40: Subtask dbt_test
+[2026-03-28T02:10:10.876+0000] {task_command.py:415} INFO - Running <TaskInstance: logistics_pipeline_v3.dbt_test manual__2026-03-28T02:09:47.097547+00:00 [running]> on host 22aa927a5017
+[2026-03-28T02:10:11.035+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Rawan' AIRFLOW_CTX_DAG_ID='logistics_pipeline_v3' AIRFLOW_CTX_TASK_ID='dbt_test' AIRFLOW_CTX_EXECUTION_DATE='2026-03-28T02:09:47.097547+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-28T02:09:47.097547+00:00'
+[2026-03-28T02:10:11.037+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-28T02:10:11.038+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/airflow/dbt_project && dbt test --profiles-dir .']
+[2026-03-28T02:10:11.054+0000] {subprocess.py:86} INFO - Output:
+[2026-03-28T02:10:14.226+0000] {subprocess.py:93} INFO - [0m02:10:14  Running with dbt=1.8.2
+[2026-03-28T02:10:14.517+0000] {subprocess.py:93} INFO - [0m02:10:14  Registered adapter: postgres=1.8.2
+[2026-03-28T02:10:14.878+0000] {subprocess.py:93} INFO - [0m02:10:14  Found 1 model, 3 data tests, 423 macros
+[2026-03-28T02:10:14.881+0000] {subprocess.py:93} INFO - [0m02:10:14
+[2026-03-28T02:10:14.985+0000] {subprocess.py:93} INFO - [0m02:10:14  Concurrency: 4 threads (target='dev')
+[2026-03-28T02:10:14.985+0000] {subprocess.py:93} INFO - [0m02:10:14
+[2026-03-28T02:10:14.994+0000] {subprocess.py:93} INFO - [0m02:10:14  1 of 3 START test not_null_courier_performance_avg_speed ....................... [RUN]
+[2026-03-28T02:10:14.996+0000] {subprocess.py:93} INFO - [0m02:10:14  2 of 3 START test not_null_courier_performance_courier_id ...................... [RUN]
+[2026-03-28T02:10:14.996+0000] {subprocess.py:93} INFO - [0m02:10:14  3 of 3 START test unique_courier_performance_courier_id ........................ [RUN]
+[2026-03-28T02:10:15.199+0000] {subprocess.py:93} INFO - [0m02:10:15  1 of 3 PASS not_null_courier_performance_avg_speed ............................. [[32mPASS[0m in 0.20s]
+[2026-03-28T02:10:15.203+0000] {subprocess.py:93} INFO - [0m02:10:15  3 of 3 PASS unique_courier_performance_courier_id .............................. [[32mPASS[0m in 0.20s]
+[2026-03-28T02:10:15.204+0000] {subprocess.py:93} INFO - [0m02:10:15  2 of 3 PASS not_null_courier_performance_courier_id ............................ [[32mPASS[0m in 0.21s]
+[2026-03-28T02:10:15.232+0000] {subprocess.py:93} INFO - [0m02:10:15
+[2026-03-28T02:10:15.237+0000] {subprocess.py:93} INFO - [0m02:10:15  Finished running 3 data tests in 0 hours 0 minutes and 0.35 seconds (0.35s).
+[2026-03-28T02:10:15.368+0000] {subprocess.py:93} INFO - [0m02:10:15
+[2026-03-28T02:10:15.371+0000] {subprocess.py:93} INFO - [0m02:10:15  [32mCompleted successfully[0m
+[2026-03-28T02:10:15.371+0000] {subprocess.py:93} INFO - [0m02:10:15
+[2026-03-28T02:10:15.371+0000] {subprocess.py:93} INFO - [0m02:10:15  Done. PASS=3 WARN=0 ERROR=0 SKIP=0 TOTAL=3
+[2026-03-28T02:10:16.657+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-03-28T02:10:16.709+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=logistics_pipeline_v3, task_id=dbt_test, execution_date=20260328T020947, start_date=20260328T021010, end_date=20260328T021016
+[2026-03-28T02:10:16.777+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2026-03-28T02:10:16.809+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

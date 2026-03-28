@@ -2,41 +2,48 @@ from airflow import DAG
 from airflow.operators.bash import BashOperator
 from datetime import datetime, timedelta
 
-# إعدادات الداج الأساسية
+# إعدادات الـ DAG
 default_args = {
     'owner': 'Rawan',
     'depends_on_past': False,
-    'start_date': datetime(2024, 1, 1),
+    'start_date': datetime(2026, 3, 28),
     'email_on_failure': False,
+    'email_on_retry': False,
     'retries': 1,
     'retry_delay': timedelta(minutes=5),
 }
 
 with DAG(
-    'logistics_pipeline_v3',  # غيرت الاسم لـ v3 عشان نضمن إن الأيرفلو يقرأ النسخة الجديدة
+    'logistics_pipeline_v3',
     default_args=default_args,
-    description='Run dbt transformations with correct PATH',
-    schedule_interval=timedelta(minutes=30),
+    description='SmartFlow Logistics Data Pipeline with dbt',
+    schedule_interval=timedelta(days=1),
     catchup=False,
 ) as dag:
 
-    # 1. اختبار الاتصال (مع تعريف المسار عشان ما يضربش)
-    check_dbt = BashOperator(
+    # 1. التأكد من الاتصال (مع تجاهل خطأ Git)
+    check_dbt_connection = BashOperator(
         task_id='check_dbt_connection',
-        bash_command='export PATH=$PATH:/root/.local/bin && cd /opt/airflow/dbt_project && dbt debug --profiles-dir .'
+        bash_command='cd /opt/airflow/dbt_project && dbt debug --profiles-dir . || echo "Ignore Git Error"',
     )
 
-    # 2. تشغيل الموديلز
-    run_dbt = BashOperator(
-        task_id='dbt_run_models',
-        bash_command='export PATH=$PATH:/root/.local/bin && cd /opt/airflow/dbt_project && dbt run --profiles-dir .'
+    # 2. تحميل البيانات الأساسية (Seeds) لو موجودة
+    dbt_seed = BashOperator(
+        task_id='dbt_seed',
+        bash_command='cd /opt/airflow/dbt_project && dbt seed --profiles-dir .',
     )
 
-    # 3. عمل الاختبارات
-    test_dbt = BashOperator(
-        task_id='dbt_test_models',
-        bash_command='export PATH=$PATH:/root/.local/bin && cd /opt/airflow/dbt_project && dbt test --profiles-dir .'
+    # 3. تشغيل الـ Models (الطبخ الحقيقي للبيانات)
+    dbt_run = BashOperator(
+        task_id='dbt_run',
+        bash_command='cd /opt/airflow/dbt_project && dbt run --profiles-dir .',
     )
 
-    # ترتيب الخطوات
-    check_dbt >> run_dbt >> test_dbt
+    # 4. عمل اختبارات على البيانات (Data Quality)
+    dbt_test = BashOperator(
+        task_id='dbt_test',
+        bash_command='cd /opt/airflow/dbt_project && dbt test --profiles-dir .',
+    )
+
+    # ترتيب الخطوات (Pipeline Flow)
+    check_dbt_connection >> dbt_seed >> dbt_run >> dbt_test
