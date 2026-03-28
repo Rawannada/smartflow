@@ -10,7 +10,7 @@ models:
           - not_null
           - unique
 
-      - name: average_speed
+      - name: avg_speed
         description: "Average speed recorded for high risk events"
         tests:
           - not_null
