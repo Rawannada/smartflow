@@ -1,0 +1,45 @@
+[2026-03-28T03:05:28.048+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: logistics_pipeline_v3.dbt_test manual__2026-03-28T03:05:05.079674+00:00 [queued]>
+[2026-03-28T03:05:28.055+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: logistics_pipeline_v3.dbt_test manual__2026-03-28T03:05:05.079674+00:00 [queued]>
+[2026-03-28T03:05:28.056+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2026-03-28T03:05:28.069+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): dbt_test> on 2026-03-28 03:05:05.079674+00:00
+[2026-03-28T03:05:28.074+0000] {standard_task_runner.py:57} INFO - Started process 1223 to run task
+[2026-03-28T03:05:28.077+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'logistics_pipeline_v3', 'dbt_test', 'manual__2026-03-28T03:05:05.079674+00:00', '--job-id', '57', '--raw', '--subdir', 'DAGS_FOLDER/smartflow_dag.py', '--cfg-path', '/tmp/tmpym84lqei']
+[2026-03-28T03:05:28.080+0000] {standard_task_runner.py:85} INFO - Job 57: Subtask dbt_test
+[2026-03-28T03:05:28.133+0000] {task_command.py:415} INFO - Running <TaskInstance: logistics_pipeline_v3.dbt_test manual__2026-03-28T03:05:05.079674+00:00 [running]> on host 22aa927a5017
+[2026-03-28T03:05:28.223+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Rawan' AIRFLOW_CTX_DAG_ID='logistics_pipeline_v3' AIRFLOW_CTX_TASK_ID='dbt_test' AIRFLOW_CTX_EXECUTION_DATE='2026-03-28T03:05:05.079674+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-28T03:05:05.079674+00:00'
+[2026-03-28T03:05:28.224+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-28T03:05:28.224+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/airflow/dbt_project && dbt test --profiles-dir .']
+[2026-03-28T03:05:28.233+0000] {subprocess.py:86} INFO - Output:
+[2026-03-28T03:05:29.982+0000] {subprocess.py:93} INFO - [0m03:05:29  Running with dbt=1.8.2
+[2026-03-28T03:05:30.321+0000] {subprocess.py:93} INFO - [0m03:05:30  Registered adapter: postgres=1.8.2
+[2026-03-28T03:05:30.937+0000] {subprocess.py:93} INFO - [0m03:05:30  Found 1 model, 3 data tests, 1 source, 423 macros
+[2026-03-28T03:05:30.941+0000] {subprocess.py:93} INFO - [0m03:05:30
+[2026-03-28T03:05:31.109+0000] {subprocess.py:93} INFO - [0m03:05:31  Concurrency: 4 threads (target='dev')
+[2026-03-28T03:05:31.110+0000] {subprocess.py:93} INFO - [0m03:05:31
+[2026-03-28T03:05:31.126+0000] {subprocess.py:93} INFO - [0m03:05:31  1 of 3 START test accepted_values_courier_performance_risk_level__Safe__Moderate__High__Extreme_Risk  [RUN]
+[2026-03-28T03:05:31.129+0000] {subprocess.py:93} INFO - [0m03:05:31  2 of 3 START test not_null_courier_performance_courier_id ...................... [RUN]
+[2026-03-28T03:05:31.130+0000] {subprocess.py:93} INFO - [0m03:05:31  3 of 3 START test unique_courier_performance_courier_id ........................ [RUN]
+[2026-03-28T03:05:31.346+0000] {subprocess.py:93} INFO - [0m03:05:31  1 of 3 FAIL 1 accepted_values_courier_performance_risk_level__Safe__Moderate__High__Extreme_Risk  [[31mFAIL 1[0m in 0.22s]
+[2026-03-28T03:05:31.360+0000] {subprocess.py:93} INFO - [0m03:05:31  2 of 3 PASS not_null_courier_performance_courier_id ............................ [[32mPASS[0m in 0.23s]
+[2026-03-28T03:05:31.361+0000] {subprocess.py:93} INFO - [0m03:05:31  3 of 3 PASS unique_courier_performance_courier_id .............................. [[32mPASS[0m in 0.23s]
+[2026-03-28T03:05:31.390+0000] {subprocess.py:93} INFO - [0m03:05:31
+[2026-03-28T03:05:31.393+0000] {subprocess.py:93} INFO - [0m03:05:31  Finished running 3 data tests in 0 hours 0 minutes and 0.45 seconds (0.45s).
+[2026-03-28T03:05:31.522+0000] {subprocess.py:93} INFO - [0m03:05:31
+[2026-03-28T03:05:31.525+0000] {subprocess.py:93} INFO - [0m03:05:31  [31mCompleted with 1 error and 0 warnings:[0m
+[2026-03-28T03:05:31.525+0000] {subprocess.py:93} INFO - [0m03:05:31
+[2026-03-28T03:05:31.525+0000] {subprocess.py:93} INFO - [0m03:05:31  [31mFailure in test accepted_values_courier_performance_risk_level__Safe__Moderate__High__Extreme_Risk (models/schema.yml)[0m
+[2026-03-28T03:05:31.529+0000] {subprocess.py:93} INFO - [0m03:05:31    Got 1 result, configured to fail if != 0
+[2026-03-28T03:05:31.529+0000] {subprocess.py:93} INFO - [0m03:05:31
+[2026-03-28T03:05:31.532+0000] {subprocess.py:93} INFO - [0m03:05:31    compiled code at target/compiled/dbt_logistics/models/schema.yml/accepted_values_courier_perfor_ab38946b8aecb74344c50124768bfda4.sql
+[2026-03-28T03:05:31.532+0000] {subprocess.py:93} INFO - [0m03:05:31
+[2026-03-28T03:05:31.533+0000] {subprocess.py:93} INFO - [0m03:05:31  Done. PASS=2 WARN=0 ERROR=1 SKIP=0 TOTAL=3
+[2026-03-28T03:05:32.691+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-03-28T03:05:32.715+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-03-28T03:05:32.721+0000] {taskinstance.py:1398} INFO - Marking task as UP_FOR_RETRY. dag_id=logistics_pipeline_v3, task_id=dbt_test, execution_date=20260328T030505, start_date=20260328T030528, end_date=20260328T030532
+[2026-03-28T03:05:32.744+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 57 for task dbt_test (Bash command failed. The command returned a non-zero exit code 1.; 1223)
+[2026-03-28T03:05:32.790+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2026-03-28T03:05:32.825+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

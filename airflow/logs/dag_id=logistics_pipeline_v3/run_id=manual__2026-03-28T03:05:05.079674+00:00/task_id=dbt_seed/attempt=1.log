@@ -1,0 +1,30 @@
+[2026-03-28T03:05:13.736+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: logistics_pipeline_v3.dbt_seed manual__2026-03-28T03:05:05.079674+00:00 [queued]>
+[2026-03-28T03:05:13.752+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: logistics_pipeline_v3.dbt_seed manual__2026-03-28T03:05:05.079674+00:00 [queued]>
+[2026-03-28T03:05:13.753+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2026-03-28T03:05:13.778+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): dbt_seed> on 2026-03-28 03:05:05.079674+00:00
+[2026-03-28T03:05:13.786+0000] {standard_task_runner.py:57} INFO - Started process 1187 to run task
+[2026-03-28T03:05:13.791+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'logistics_pipeline_v3', 'dbt_seed', 'manual__2026-03-28T03:05:05.079674+00:00', '--job-id', '55', '--raw', '--subdir', 'DAGS_FOLDER/smartflow_dag.py', '--cfg-path', '/tmp/tmp1l97r5f7']
+[2026-03-28T03:05:13.795+0000] {standard_task_runner.py:85} INFO - Job 55: Subtask dbt_seed
+[2026-03-28T03:05:13.896+0000] {task_command.py:415} INFO - Running <TaskInstance: logistics_pipeline_v3.dbt_seed manual__2026-03-28T03:05:05.079674+00:00 [running]> on host 22aa927a5017
+[2026-03-28T03:05:14.073+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Rawan' AIRFLOW_CTX_DAG_ID='logistics_pipeline_v3' AIRFLOW_CTX_TASK_ID='dbt_seed' AIRFLOW_CTX_EXECUTION_DATE='2026-03-28T03:05:05.079674+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-28T03:05:05.079674+00:00'
+[2026-03-28T03:05:14.075+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-28T03:05:14.077+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/airflow/dbt_project && dbt seed --profiles-dir .']
+[2026-03-28T03:05:14.099+0000] {subprocess.py:86} INFO - Output:
+[2026-03-28T03:05:18.089+0000] {subprocess.py:93} INFO - [0m03:05:18  Running with dbt=1.8.2
+[2026-03-28T03:05:18.592+0000] {subprocess.py:93} INFO - [0m03:05:18  Registered adapter: postgres=1.8.2
+[2026-03-28T03:05:18.955+0000] {subprocess.py:93} INFO - [0m03:05:18  Unable to do partial parsing because profile has changed
+[2026-03-28T03:05:21.264+0000] {subprocess.py:93} INFO - [0m03:05:21  [[33mWARNING[0m]: Deprecated functionality
+[2026-03-28T03:05:21.265+0000] {subprocess.py:93} INFO - The `tests` config has been renamed to `data_tests`. Please see
+[2026-03-28T03:05:21.266+0000] {subprocess.py:93} INFO - https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+[2026-03-28T03:05:21.266+0000] {subprocess.py:93} INFO - information.
+[2026-03-28T03:05:22.234+0000] {subprocess.py:93} INFO - [0m03:05:22  Found 1 model, 3 data tests, 1 source, 423 macros
+[2026-03-28T03:05:22.238+0000] {subprocess.py:93} INFO - [0m03:05:22
+[2026-03-28T03:05:22.241+0000] {subprocess.py:93} INFO - [0m03:05:22  Nothing to do. Try checking your model configs and model specification args
+[2026-03-28T03:05:22.304+0000] {subprocess.py:93} INFO - [0m03:05:22
+[2026-03-28T03:05:22.306+0000] {subprocess.py:93} INFO - [0m03:05:22  [32mCompleted successfully[0m
+[2026-03-28T03:05:22.307+0000] {subprocess.py:93} INFO - [0m03:05:22
+[2026-03-28T03:05:22.309+0000] {subprocess.py:93} INFO - [0m03:05:22  Done. PASS=0 WARN=0 ERROR=0 SKIP=0 TOTAL=0
+[2026-03-28T03:05:23.417+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-03-28T03:05:23.475+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=logistics_pipeline_v3, task_id=dbt_seed, execution_date=20260328T030505, start_date=20260328T030513, end_date=20260328T030523
+[2026-03-28T03:05:23.538+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2026-03-28T03:05:23.587+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

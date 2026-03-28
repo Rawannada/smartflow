@@ -2,15 +2,13 @@ version: 2
 
 models:
   - name: courier_performance
-    description: "Table analyzing courier speeds and alerts"
+    description: "Final analytics table for courier risks"
     columns:
       - name: courier_id
-        description: "Unique identifier for the courier"
         tests:
-          - not_null
           - unique
-
-      - name: avg_speed
-        description: "Average speed recorded for high risk events"
-        tests:
           - not_null
+      - name: risk_level
+        tests:
+          - accepted_values:
+              values: ['Safe', 'Moderate', 'High Risk', 'Extreme Risk']
