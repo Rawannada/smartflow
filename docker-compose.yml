@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   postgres:
     image: postgres:15
@@ -14,8 +13,9 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    networks:
+      - smartflow_net
 
-  # --- السطر ده هو اللي هيرجع الأيرفلو للحياة ---
   airflow-init:
     image: apache/airflow:2.7.1
     container_name: airflow_init
@@ -25,6 +25,8 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+    networks:
+      - smartflow_net
 
   airflow-webserver:
     image: apache/airflow:2.7.1
@@ -43,6 +45,8 @@ services:
     depends_on:
       airflow-init:
         condition: service_completed_successfully
+    networks:
+      - smartflow_net
 
   airflow-scheduler:
     image: apache/airflow:2.7.1
@@ -59,12 +63,16 @@ services:
     depends_on:
       airflow-init:
         condition: service_completed_successfully
+    networks:
+      - smartflow_net
 
   zookeeper:
     image: confluentinc/cp-zookeeper:7.3.0
     container_name: zookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
+    networks:
+      - smartflow_net
 
   kafka:
     image: confluentinc/cp-kafka:7.3.0
@@ -78,15 +86,41 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    networks:
+      - smartflow_net
 
   spark-master:
     image: apache/spark:3.4.0
     container_name: spark-master
     ports: [ "8081:8080", "7077:7077" ]
     command: /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master
+    networks:
+      - smartflow_net
 
   spark-worker:
     image: apache/spark:3.4.0
     container_name: spark-worker
     depends_on: [ spark-master ]
     command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    networks:
+      - smartflow_net
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.dashboard
+    container_name: smartflow_dashboard
+    ports:
+      - "8501:8501"
+    environment:
+      - DB_URL=postgresql://admin:password123@postgres:5432/logistics_db
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - smartflow_net
+
+# السطور اللي تحت دي هي اللي بتعرف الدوكر إن فيه شبكة اسمها smartflow_net
+networks:
+  smartflow_net:
+    driver: bridge

@@ -11,7 +11,7 @@ st.title("🚚 SmartFlow: Logistics Performance")
 
 # 2. Database Connection
 try:
-    engine = create_engine('postgresql://admin:password123@localhost:5432/logistics_db')
+    engine = create_engine('postgresql://admin:password123@postgres:5432/logistics_db')
     df = pd.read_sql("SELECT * FROM public_analytics.courier_performance", engine)
     
     st.sidebar.success("Database Connected")

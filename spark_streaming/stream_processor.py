@@ -88,10 +88,12 @@ def process_batch(df, epoch_id):
         # أ. تنظيف الأعمدة للـ Postgres
         df_to_save = df.select(
             col("courier_id"),
-            col("speed"),
+            col("speed").alias("avg_speed"),
             col("order_id"),
             col("value"),
-            col("event_time")
+            col("event_time"),
+            expr("1").alias("violation_count"), 
+            col("event_time").alias("last_violation") 
         )
 
         # ب. الحفظ في قاعدة البيانات
@@ -99,7 +101,7 @@ def process_batch(df, epoch_id):
             df_to_save.write \
               .format("jdbc") \
               .option("url", "jdbc:postgresql://localhost:5432/logistics_db") \
-              .option("dbtable", "high_risk_alerts") \
+              .option("dbtable", "public_analytics.courier_performance") \
               .option("user", "admin") \
               .option("password", "password123") \
               .option("driver", "org.postgresql.Driver") \

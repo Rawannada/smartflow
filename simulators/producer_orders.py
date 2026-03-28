@@ -1,10 +1,10 @@
 import json
 import time
 import random
-import uuid  # لإنشاء IDs فريدة تماماً
+import uuid
 from kafka import KafkaProducer
 
-# 1. إعداد المنتج للربط مع كافكا
+# 1. إعداد المنتج
 producer = KafkaProducer(
     bootstrap_servers=['localhost:29092'],
     value_serializer=lambda v: json.dumps(v).encode('utf-8'),
@@ -13,46 +13,52 @@ producer = KafkaProducer(
 
 TOPIC_NAME = 'order_metadata'
 
-def generate_unique_orders():
-    # قائمة المناديب اللي بنحاكي حركتهم
-    couriers = ['C-101', 'C-102', 'C-103']
+def generate_egyptian_logistics_data():
+    # قائمة بأسماء مناديب مصرية حقيقية لزوم الواقعية في المناقشة
+    couriers = [
+        'Ahmed_Zaki', 'Mohamed_Ramadan', 'Mahmoud_El_Sisi', 
+        'Mostafa_Bakry', 'Tarek_Hamed', 'Hassan_Shaker', 
+        'Ibrahim_Adel', 'Ali_Mazhar', 'Sayed_Abdelhafiz', 'Amr_Diab'
+    ]
     
-    print(f"\n📦 [NEW BATCH] Generating unique orders for couriers...")
+    print(f"\n📦 [NEW BATCH] Simulating real-time orders for Egypt Branch...")
     
-    for cid in couriers:
-        # إنشاء Order ID فريد (مثال: ORD-a1b2c3...)
+    for courier in couriers:
         unique_id = f"ORD-{str(uuid.uuid4())[:8].upper()}"
         
-        # اختيار قيمة عشوائية (عشان نجرب الـ Filter في السبارك)
-        # السرعة > 100 والقيمة > 2000 هي اللي هتعمل Alert
-        random_value = random.choice([800.0, 1500.0, 3200.0, 5500.0, 7000.0])
+        # تنويع المبالغ (Value):
+        # 100-900: Safe (الأخضر)
+        # 1000-4000: Moderate/High (الأصفر/البرتقالي)
+        # 5000-15000: Extreme Risk (الأحمر)
+        random_value = random.choice([
+            120.0, 350.0, 600.0,      # آمن
+            1500.0, 2800.0, 4200.0,   # خطر متوسط
+            6500.0, 9000.0, 14500.0   # خطر جداً
+        ])
         
         order_data = {
-            "courier_id": cid,
+            "courier_id": courier,
             "order_id": unique_id,
-            "value": float(random_value)
+            "value": float(random_value),
+            "timestamp": time.time()
         }
         
-        # إرسال البيانات لكافكا
         producer.send(TOPIC_NAME, value=order_data)
-        
-        print(f"✅ Sent -> Courier: {cid} | Order: {unique_id} | Value: {random_value} EGP")
+        print(f"✅ Sent -> Courier: {courier} | Order: {unique_id} | Value: {random_value} EGP")
     
-    # التأكد من وصول البيانات فوراً
     producer.flush()
 
 if __name__ == "__main__":
     try:
-        print("🚀 Orders Simulator is running... Press Ctrl+C to stop.")
+        print("🚀 Egypt Logistics Simulator Running... Press Ctrl+C to stop.")
         while True:
-            generate_unique_orders()
+            generate_egyptian_logistics_data()
             
-            # بنغير الأوردرات كل 30 ثانية عشان نحاكي الواقع
-            # المندوب بياخد وقت عقبال ما يخلص أوردر ويستلم التاني
-            print("⏳ Waiting 30 seconds for next order cycle...")
-            time.sleep(30)
+            # 10 ثواني عشان الأرقام تجري قدامهم في الـ Dashboard
+            print("⏳ Next delivery cycle in 10 seconds...")
+            time.sleep(10)
             
     except KeyboardInterrupt:
-        print("\n🛑 Stopping Orders Producer...")
+        print("\n🛑 Stopping Egypt Producer...")
     finally:
         producer.close()

@@ -1,0 +1,18 @@
+[2026-03-28T03:57:54.249+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: logistics_pipeline_v3.check_dbt_connection manual__2026-03-28T03:57:52.585615+00:00 [queued]>
+[2026-03-28T03:57:54.263+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: logistics_pipeline_v3.check_dbt_connection manual__2026-03-28T03:57:52.585615+00:00 [queued]>
+[2026-03-28T03:57:54.263+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2026-03-28T03:57:54.283+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): check_dbt_connection> on 2026-03-28 03:57:52.585615+00:00
+[2026-03-28T03:57:54.291+0000] {standard_task_runner.py:57} INFO - Started process 424 to run task
+[2026-03-28T03:57:54.298+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'logistics_pipeline_v3', 'check_dbt_connection', 'manual__2026-03-28T03:57:52.585615+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/smartflow_dag.py', '--cfg-path', '/tmp/tmpp1st5xaw']
+[2026-03-28T03:57:54.302+0000] {standard_task_runner.py:85} INFO - Job 15: Subtask check_dbt_connection
+[2026-03-28T03:57:54.405+0000] {task_command.py:415} INFO - Running <TaskInstance: logistics_pipeline_v3.check_dbt_connection manual__2026-03-28T03:57:52.585615+00:00 [running]> on host 93ae944fd226
+[2026-03-28T03:57:54.557+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Rawan' AIRFLOW_CTX_DAG_ID='logistics_pipeline_v3' AIRFLOW_CTX_TASK_ID='check_dbt_connection' AIRFLOW_CTX_EXECUTION_DATE='2026-03-28T03:57:52.585615+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-28T03:57:52.585615+00:00'
+[2026-03-28T03:57:54.559+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-28T03:57:54.564+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/airflow/dbt_project && dbt debug --profiles-dir . || echo "Ignore Git Error"']
+[2026-03-28T03:57:54.578+0000] {subprocess.py:86} INFO - Output:
+[2026-03-28T03:57:54.581+0000] {subprocess.py:93} INFO - /bin/bash: line 1: dbt: command not found
+[2026-03-28T03:57:54.582+0000] {subprocess.py:93} INFO - Ignore Git Error
+[2026-03-28T03:57:54.582+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-03-28T03:57:54.635+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=logistics_pipeline_v3, task_id=check_dbt_connection, execution_date=20260328T035752, start_date=20260328T035754, end_date=20260328T035754
+[2026-03-28T03:57:54.675+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2026-03-28T03:57:54.728+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check
