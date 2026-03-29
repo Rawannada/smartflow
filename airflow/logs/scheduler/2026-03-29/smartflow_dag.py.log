@@ -1533,3 +1533,129 @@
 [2026-03-29T01:49:36.627+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:49:36.627+0000] {dag.py:2915} INFO - Sync 1 DAGs
 [2026-03-29T01:49:36.679+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:49:36.679+0000] {dag.py:3696} INFO - Setting next_dagrun for logistics_pipeline_v3 to 2026-03-29T01:14:04.595024+00:00, run_after=2026-03-30T01:14:04.595024+00:00
 [2026-03-29T01:49:36.722+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/smartflow_dag.py took 0.258 seconds
+[2026-03-29T01:50:07.220+0000] {processor.py:157} INFO - Started process (PID=1558) to work on /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:50:07.222+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/smartflow_dag.py for tasks to queue
+[2026-03-29T01:50:07.225+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:50:07.224+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:50:07.243+0000] {processor.py:839} INFO - DAG(s) dict_keys(['logistics_pipeline_v3']) retrieved from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:50:07.293+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:50:07.293+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2026-03-29T01:50:07.329+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:50:07.329+0000] {dag.py:3696} INFO - Setting next_dagrun for logistics_pipeline_v3 to 2026-03-29T01:14:04.595024+00:00, run_after=2026-03-30T01:14:04.595024+00:00
+[2026-03-29T01:50:07.359+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/smartflow_dag.py took 0.143 seconds
+[2026-03-29T01:50:37.408+0000] {processor.py:157} INFO - Started process (PID=1563) to work on /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:50:37.420+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/smartflow_dag.py for tasks to queue
+[2026-03-29T01:50:37.421+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:50:37.421+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:50:37.433+0000] {processor.py:839} INFO - DAG(s) dict_keys(['logistics_pipeline_v3']) retrieved from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:50:37.473+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:50:37.473+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2026-03-29T01:50:37.505+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:50:37.505+0000] {dag.py:3696} INFO - Setting next_dagrun for logistics_pipeline_v3 to 2026-03-29T01:14:04.595024+00:00, run_after=2026-03-30T01:14:04.595024+00:00
+[2026-03-29T01:50:37.531+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/smartflow_dag.py took 0.129 seconds
+[2026-03-29T01:51:08.315+0000] {processor.py:157} INFO - Started process (PID=1568) to work on /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:51:08.329+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/smartflow_dag.py for tasks to queue
+[2026-03-29T01:51:08.330+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:51:08.330+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:51:08.349+0000] {processor.py:839} INFO - DAG(s) dict_keys(['logistics_pipeline_v3']) retrieved from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:51:08.394+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:51:08.394+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2026-03-29T01:51:08.419+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:51:08.419+0000] {dag.py:3696} INFO - Setting next_dagrun for logistics_pipeline_v3 to 2026-03-29T01:14:04.595024+00:00, run_after=2026-03-30T01:14:04.595024+00:00
+[2026-03-29T01:51:08.439+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/smartflow_dag.py took 0.128 seconds
+[2026-03-29T01:51:38.690+0000] {processor.py:157} INFO - Started process (PID=1573) to work on /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:51:38.702+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/smartflow_dag.py for tasks to queue
+[2026-03-29T01:51:38.703+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:51:38.703+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:51:38.715+0000] {processor.py:839} INFO - DAG(s) dict_keys(['logistics_pipeline_v3']) retrieved from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:51:38.749+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:51:38.749+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2026-03-29T01:51:38.770+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:51:38.770+0000] {dag.py:3696} INFO - Setting next_dagrun for logistics_pipeline_v3 to 2026-03-29T01:14:04.595024+00:00, run_after=2026-03-30T01:14:04.595024+00:00
+[2026-03-29T01:51:38.792+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/smartflow_dag.py took 0.105 seconds
+[2026-03-29T01:52:09.690+0000] {processor.py:157} INFO - Started process (PID=1578) to work on /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:52:09.702+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/smartflow_dag.py for tasks to queue
+[2026-03-29T01:52:09.703+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:52:09.703+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:52:09.715+0000] {processor.py:839} INFO - DAG(s) dict_keys(['logistics_pipeline_v3']) retrieved from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:52:09.751+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:52:09.750+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2026-03-29T01:52:09.781+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:52:09.781+0000] {dag.py:3696} INFO - Setting next_dagrun for logistics_pipeline_v3 to 2026-03-29T01:14:04.595024+00:00, run_after=2026-03-30T01:14:04.595024+00:00
+[2026-03-29T01:52:09.803+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/smartflow_dag.py took 0.117 seconds
+[2026-03-29T01:52:39.930+0000] {processor.py:157} INFO - Started process (PID=1583) to work on /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:52:39.942+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/smartflow_dag.py for tasks to queue
+[2026-03-29T01:52:39.943+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:52:39.943+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:52:39.955+0000] {processor.py:839} INFO - DAG(s) dict_keys(['logistics_pipeline_v3']) retrieved from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:52:39.990+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:52:39.990+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2026-03-29T01:52:40.014+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:52:40.014+0000] {dag.py:3696} INFO - Setting next_dagrun for logistics_pipeline_v3 to 2026-03-29T01:14:04.595024+00:00, run_after=2026-03-30T01:14:04.595024+00:00
+[2026-03-29T01:52:40.039+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/smartflow_dag.py took 0.113 seconds
+[2026-03-29T01:53:10.094+0000] {processor.py:157} INFO - Started process (PID=1588) to work on /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:53:10.107+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/smartflow_dag.py for tasks to queue
+[2026-03-29T01:53:10.108+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:53:10.107+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:53:10.120+0000] {processor.py:839} INFO - DAG(s) dict_keys(['logistics_pipeline_v3']) retrieved from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:53:10.164+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:53:10.164+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2026-03-29T01:53:10.190+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:53:10.190+0000] {dag.py:3696} INFO - Setting next_dagrun for logistics_pipeline_v3 to 2026-03-29T01:14:04.595024+00:00, run_after=2026-03-30T01:14:04.595024+00:00
+[2026-03-29T01:53:10.211+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/smartflow_dag.py took 0.120 seconds
+[2026-03-29T01:53:40.336+0000] {processor.py:157} INFO - Started process (PID=1593) to work on /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:53:40.338+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/smartflow_dag.py for tasks to queue
+[2026-03-29T01:53:40.339+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:53:40.338+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:53:40.352+0000] {processor.py:839} INFO - DAG(s) dict_keys(['logistics_pipeline_v3']) retrieved from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:53:40.389+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:53:40.388+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2026-03-29T01:53:40.415+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:53:40.415+0000] {dag.py:3696} INFO - Setting next_dagrun for logistics_pipeline_v3 to 2026-03-29T01:14:04.595024+00:00, run_after=2026-03-30T01:14:04.595024+00:00
+[2026-03-29T01:53:40.440+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/smartflow_dag.py took 0.107 seconds
+[2026-03-29T01:54:10.539+0000] {processor.py:157} INFO - Started process (PID=1598) to work on /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:54:10.552+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/smartflow_dag.py for tasks to queue
+[2026-03-29T01:54:10.553+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:54:10.553+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:54:10.565+0000] {processor.py:839} INFO - DAG(s) dict_keys(['logistics_pipeline_v3']) retrieved from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:54:10.602+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:54:10.602+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2026-03-29T01:54:10.634+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:54:10.634+0000] {dag.py:3696} INFO - Setting next_dagrun for logistics_pipeline_v3 to 2026-03-29T01:14:04.595024+00:00, run_after=2026-03-30T01:14:04.595024+00:00
+[2026-03-29T01:54:10.655+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/smartflow_dag.py took 0.120 seconds
+[2026-03-29T01:54:40.777+0000] {processor.py:157} INFO - Started process (PID=1603) to work on /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:54:40.790+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/smartflow_dag.py for tasks to queue
+[2026-03-29T01:54:40.791+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:54:40.790+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:54:40.804+0000] {processor.py:839} INFO - DAG(s) dict_keys(['logistics_pipeline_v3']) retrieved from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:54:40.838+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:54:40.838+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2026-03-29T01:54:40.859+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:54:40.859+0000] {dag.py:3696} INFO - Setting next_dagrun for logistics_pipeline_v3 to 2026-03-29T01:14:04.595024+00:00, run_after=2026-03-30T01:14:04.595024+00:00
+[2026-03-29T01:54:40.885+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/smartflow_dag.py took 0.112 seconds
+[2026-03-29T01:55:10.959+0000] {processor.py:157} INFO - Started process (PID=1608) to work on /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:55:10.971+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/smartflow_dag.py for tasks to queue
+[2026-03-29T01:55:10.972+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:55:10.971+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:55:10.985+0000] {processor.py:839} INFO - DAG(s) dict_keys(['logistics_pipeline_v3']) retrieved from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:55:11.022+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:55:11.022+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2026-03-29T01:55:11.046+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:55:11.046+0000] {dag.py:3696} INFO - Setting next_dagrun for logistics_pipeline_v3 to 2026-03-29T01:14:04.595024+00:00, run_after=2026-03-30T01:14:04.595024+00:00
+[2026-03-29T01:55:11.070+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/smartflow_dag.py took 0.116 seconds
+[2026-03-29T01:55:41.328+0000] {processor.py:157} INFO - Started process (PID=1613) to work on /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:55:41.341+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/smartflow_dag.py for tasks to queue
+[2026-03-29T01:55:41.342+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:55:41.342+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:55:41.354+0000] {processor.py:839} INFO - DAG(s) dict_keys(['logistics_pipeline_v3']) retrieved from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:55:41.392+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:55:41.391+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2026-03-29T01:55:41.415+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:55:41.415+0000] {dag.py:3696} INFO - Setting next_dagrun for logistics_pipeline_v3 to 2026-03-29T01:14:04.595024+00:00, run_after=2026-03-30T01:14:04.595024+00:00
+[2026-03-29T01:55:41.438+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/smartflow_dag.py took 0.114 seconds
+[2026-03-29T01:56:11.473+0000] {processor.py:157} INFO - Started process (PID=1618) to work on /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:56:11.486+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/smartflow_dag.py for tasks to queue
+[2026-03-29T01:56:11.487+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:56:11.487+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:56:11.499+0000] {processor.py:839} INFO - DAG(s) dict_keys(['logistics_pipeline_v3']) retrieved from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:56:11.540+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:56:11.540+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2026-03-29T01:56:11.566+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:56:11.566+0000] {dag.py:3696} INFO - Setting next_dagrun for logistics_pipeline_v3 to 2026-03-29T01:14:04.595024+00:00, run_after=2026-03-30T01:14:04.595024+00:00
+[2026-03-29T01:56:11.589+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/smartflow_dag.py took 0.121 seconds
+[2026-03-29T01:56:41.793+0000] {processor.py:157} INFO - Started process (PID=1623) to work on /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:56:41.806+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/smartflow_dag.py for tasks to queue
+[2026-03-29T01:56:41.807+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:56:41.807+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:56:41.819+0000] {processor.py:839} INFO - DAG(s) dict_keys(['logistics_pipeline_v3']) retrieved from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:56:41.859+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:56:41.859+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2026-03-29T01:56:41.884+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:56:41.884+0000] {dag.py:3696} INFO - Setting next_dagrun for logistics_pipeline_v3 to 2026-03-29T01:14:04.595024+00:00, run_after=2026-03-30T01:14:04.595024+00:00
+[2026-03-29T01:56:41.905+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/smartflow_dag.py took 0.118 seconds
+[2026-03-29T01:57:11.981+0000] {processor.py:157} INFO - Started process (PID=1628) to work on /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:57:11.999+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/smartflow_dag.py for tasks to queue
+[2026-03-29T01:57:12.001+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:57:12.001+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:57:12.014+0000] {processor.py:839} INFO - DAG(s) dict_keys(['logistics_pipeline_v3']) retrieved from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:57:12.057+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:57:12.057+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2026-03-29T01:57:12.085+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:57:12.085+0000] {dag.py:3696} INFO - Setting next_dagrun for logistics_pipeline_v3 to 2026-03-29T01:14:04.595024+00:00, run_after=2026-03-30T01:14:04.595024+00:00
+[2026-03-29T01:57:12.105+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/smartflow_dag.py took 0.129 seconds
+[2026-03-29T01:57:42.272+0000] {processor.py:157} INFO - Started process (PID=1633) to work on /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:57:42.284+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/smartflow_dag.py for tasks to queue
+[2026-03-29T01:57:42.285+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:57:42.285+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:57:42.301+0000] {processor.py:839} INFO - DAG(s) dict_keys(['logistics_pipeline_v3']) retrieved from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:57:42.345+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:57:42.344+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2026-03-29T01:57:42.375+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:57:42.375+0000] {dag.py:3696} INFO - Setting next_dagrun for logistics_pipeline_v3 to 2026-03-29T01:14:04.595024+00:00, run_after=2026-03-30T01:14:04.595024+00:00
+[2026-03-29T01:57:42.394+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/smartflow_dag.py took 0.125 seconds
+[2026-03-29T01:58:12.480+0000] {processor.py:157} INFO - Started process (PID=1638) to work on /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:58:12.484+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/smartflow_dag.py for tasks to queue
+[2026-03-29T01:58:12.485+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:58:12.485+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:58:12.506+0000] {processor.py:839} INFO - DAG(s) dict_keys(['logistics_pipeline_v3']) retrieved from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:58:12.552+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:58:12.552+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2026-03-29T01:58:12.580+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:58:12.580+0000] {dag.py:3696} INFO - Setting next_dagrun for logistics_pipeline_v3 to 2026-03-29T01:14:04.595024+00:00, run_after=2026-03-30T01:14:04.595024+00:00
+[2026-03-29T01:58:12.604+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/smartflow_dag.py took 0.133 seconds
+[2026-03-29T01:58:42.883+0000] {processor.py:157} INFO - Started process (PID=1643) to work on /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:58:42.886+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/smartflow_dag.py for tasks to queue
+[2026-03-29T01:58:42.887+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:58:42.886+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:58:42.898+0000] {processor.py:839} INFO - DAG(s) dict_keys(['logistics_pipeline_v3']) retrieved from /opt/airflow/dags/smartflow_dag.py
+[2026-03-29T01:58:42.943+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:58:42.942+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2026-03-29T01:58:42.969+0000] {logging_mixin.py:151} INFO - [2026-03-29T01:58:42.969+0000] {dag.py:3696} INFO - Setting next_dagrun for logistics_pipeline_v3 to 2026-03-29T01:14:04.595024+00:00, run_after=2026-03-30T01:14:04.595024+00:00
+[2026-03-29T01:58:42.989+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/smartflow_dag.py took 0.110 seconds
