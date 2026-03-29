@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: my_raw_data           # الاسم اللي dbt بيدور عليه
-    schema: public_analytics    # السكيما اللي فيها الجدول في البوست جريس
+  - name: my_raw_data           
+    schema: public_analytics    
     tables:
-      - name: courier_performance # اسم الجدول اللي سبارك رماه فعلياً
+      - name: courier_performance 

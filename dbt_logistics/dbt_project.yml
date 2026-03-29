@@ -21,11 +21,11 @@ clean-targets:
 # Configuring models
 models:
   dbt_logistics:
-    # التعديل هنا: بنخلي كل الـ models تطلع كـ Tables في البوست جريس
+
     +materialized: table
-    # وبنحدد الـ schema اللي dbt هيبعت ليها النتائج
     +schema: analytics
+   
     
-    # قفلنا الأمثلة القديمة عشان ما تعملش زحمة
+    
     example:
       +enabled: false

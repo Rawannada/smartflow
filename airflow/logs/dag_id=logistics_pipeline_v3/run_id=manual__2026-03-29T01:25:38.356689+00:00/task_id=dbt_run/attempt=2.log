@@ -1,0 +1,44 @@
+[2026-03-29T01:31:10.986+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: logistics_pipeline_v3.dbt_run manual__2026-03-29T01:25:38.356689+00:00 [queued]>
+[2026-03-29T01:31:11.003+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: logistics_pipeline_v3.dbt_run manual__2026-03-29T01:25:38.356689+00:00 [queued]>
+[2026-03-29T01:31:11.004+0000] {taskinstance.py:1359} INFO - Starting attempt 2 of 2
+[2026-03-29T01:31:11.030+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): dbt_run> on 2026-03-29 01:25:38.356689+00:00
+[2026-03-29T01:31:11.040+0000] {standard_task_runner.py:57} INFO - Started process 1257 to run task
+[2026-03-29T01:31:11.049+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'logistics_pipeline_v3', 'dbt_run', 'manual__2026-03-29T01:25:38.356689+00:00', '--job-id', '42', '--raw', '--subdir', 'DAGS_FOLDER/smartflow_dag.py', '--cfg-path', '/tmp/tmpvqomlx1_']
+[2026-03-29T01:31:11.054+0000] {standard_task_runner.py:85} INFO - Job 42: Subtask dbt_run
+[2026-03-29T01:31:11.191+0000] {task_command.py:415} INFO - Running <TaskInstance: logistics_pipeline_v3.dbt_run manual__2026-03-29T01:25:38.356689+00:00 [running]> on host 98eed5e96431
+[2026-03-29T01:31:11.408+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Rawan' AIRFLOW_CTX_DAG_ID='logistics_pipeline_v3' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2026-03-29T01:25:38.356689+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-29T01:25:38.356689+00:00'
+[2026-03-29T01:31:11.411+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-29T01:31:11.412+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/airflow/dbt_project && dbt run --profiles-dir .']
+[2026-03-29T01:31:11.433+0000] {subprocess.py:86} INFO - Output:
+[2026-03-29T01:31:17.176+0000] {subprocess.py:93} INFO - [0m01:31:17  Running with dbt=1.8.0
+[2026-03-29T01:31:18.076+0000] {subprocess.py:93} INFO - [0m01:31:18  Registered adapter: postgres=1.8.0
+[2026-03-29T01:31:19.413+0000] {subprocess.py:93} INFO - [0m01:31:19  Found 1 model, 3 data tests, 1 source, 423 macros
+[2026-03-29T01:31:19.421+0000] {subprocess.py:93} INFO - [0m01:31:19
+[2026-03-29T01:31:19.848+0000] {subprocess.py:93} INFO - [0m01:31:19  Concurrency: 4 threads (target='dev')
+[2026-03-29T01:31:19.850+0000] {subprocess.py:93} INFO - [0m01:31:19
+[2026-03-29T01:31:19.887+0000] {subprocess.py:93} INFO - [0m01:31:19  1 of 1 START sql table model public_analytics.courier_performance .............. [RUN]
+[2026-03-29T01:31:21.185+0000] {subprocess.py:93} INFO - [0m01:31:21  1 of 1 ERROR creating sql table model public_analytics.courier_performance ..... [[31mERROR[0m in 1.28s]
+[2026-03-29T01:31:21.254+0000] {subprocess.py:93} INFO - [0m01:31:21
+[2026-03-29T01:31:21.260+0000] {subprocess.py:93} INFO - [0m01:31:21  Finished running 1 table model in 0 hours 0 minutes and 1.83 seconds (1.83s).
+[2026-03-29T01:31:20.570+0000] {subprocess.py:93} INFO - [0m01:31:20
+[2026-03-29T01:31:20.575+0000] {subprocess.py:93} INFO - [0m01:31:20  [31mCompleted with 1 error and 0 warnings:[0m
+[2026-03-29T01:31:20.577+0000] {subprocess.py:93} INFO - [0m01:31:20
+[2026-03-29T01:31:20.580+0000] {subprocess.py:93} INFO - [0m01:31:20    Database Error in model courier_performance (models/courier_performance.sql)
+[2026-03-29T01:31:20.580+0000] {subprocess.py:93} INFO -   deadlock detected
+[2026-03-29T01:31:20.581+0000] {subprocess.py:93} INFO -   DETAIL:  Process 6726 waits for ShareLock on transaction 7419; blocked by process 6725.
+[2026-03-29T01:31:20.582+0000] {subprocess.py:93} INFO -   Process 6725 waits for AccessExclusiveLock on relation 17037 of database 16384; blocked by process 6726.
+[2026-03-29T01:31:20.584+0000] {subprocess.py:93} INFO -   HINT:  See server log for query details.
+[2026-03-29T01:31:20.584+0000] {subprocess.py:93} INFO -   CONTEXT:  while inserting index tuple (16,107) in relation "pg_type_typname_nsp_index"
+[2026-03-29T01:31:20.584+0000] {subprocess.py:93} INFO -   compiled code at target/run/dbt_logistics/models/courier_performance.sql
+[2026-03-29T01:31:20.585+0000] {subprocess.py:93} INFO - [0m01:31:20
+[2026-03-29T01:31:20.586+0000] {subprocess.py:93} INFO - [0m01:31:20  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[2026-03-29T01:31:20.809+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-03-29T01:31:20.851+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-03-29T01:31:20.859+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=logistics_pipeline_v3, task_id=dbt_run, execution_date=20260329T012538, start_date=20260329T013110, end_date=20260329T013120
+[2026-03-29T01:31:20.920+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 42 for task dbt_run (Bash command failed. The command returned a non-zero exit code 1.; 1257)
+[2026-03-29T01:31:20.979+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2026-03-29T01:31:21.048+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

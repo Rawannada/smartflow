@@ -4,7 +4,6 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import from_json, col, expr, current_timestamp, from_unixtime
 from pyspark.sql.types import StructType, StructField, StringType, DoubleType
 
-# --- 1. وظيفة إرسال الإيميل (Email Alert) ---
 def send_alert_email(courier_id, speed, order_id):
     msg = EmailMessage()
     msg.set_content(f"🚨 ALERT: Courier {courier_id} is Overspeeding!\n\n"
@@ -20,14 +19,12 @@ def send_alert_email(courier_id, speed, order_id):
     
     try:
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-            # استخدمي الـ 16 حرف (App Password) اللي طلعتيه من جوجل هنا
             smtp.login("rwannada22@gmail.com", "tcuacqogbwcsxivk") 
             smtp.send_message(msg)
             print(f"📧 Email Alert Sent for Courier: {courier_id}")
     except Exception as e:
         print(f"❌ Email Failed for {courier_id}: {e}")
 
-# --- 2. إعداد السبارك والـ Connectors ---
 spark = SparkSession.builder \
     .appName("SmartFlow-Final-Pipeline") \
     .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.1,org.postgresql:postgresql:42.6.0") \
@@ -35,7 +32,6 @@ spark = SparkSession.builder \
 
 spark.sparkContext.setLogLevel("ERROR")
 
-# --- 3. الـ Schemas ---
 telemetry_schema = StructType([
     StructField("courier_id", StringType()),
     StructField("speed", DoubleType()),
@@ -48,7 +44,6 @@ order_schema = StructType([
     StructField("value", DoubleType())
 ])
 
-# --- 4. قراءة الداتا من Kafka ---
 telemetry_df = spark.readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "localhost:29092") \
@@ -69,7 +64,6 @@ orders_df = spark.readStream \
     .withColumn("order_time", current_timestamp()) \
     .withWatermark("order_time", "5 minutes")
 
-# --- 5. الـ Join والفلترة (المخالفات) ---
 final_alerts = telemetry_df.join(
     orders_df,
     expr("""
@@ -80,12 +74,10 @@ final_alerts = telemetry_df.join(
 ).filter((col("speed") > 100) & (col("value") > 2000)) \
  .dropDuplicates(["courier_id", "order_id"])
 
-# --- 6. وظيفة المعالجة (Postgres + Email) ---
 def process_batch(df, epoch_id):
     if df.count() > 0:
         print(f"⚡ Processing {df.count()} new alerts...")
 
-        # أ. تنظيف الأعمدة للـ Postgres
         df_to_save = df.select(
             col("courier_id"),
             col("speed").alias("avg_speed"),
@@ -96,7 +88,6 @@ def process_batch(df, epoch_id):
             col("event_time").alias("last_violation") 
         )
 
-        # ب. الحفظ في قاعدة البيانات
         try:
             df_to_save.write \
               .format("jdbc") \
@@ -111,13 +102,10 @@ def process_batch(df, epoch_id):
         except Exception as e:
             print(f"❌ DB Error: {e}")
 
-        # ج. إرسال الإيميلات لكل مخالفة في الـ Batch
-        # بنستخدم .collect() هنا عشان نلف على الصفوف ونبعت الميل
         alerts_list = df.collect()
         for row in alerts_list:
             send_alert_email(row['courier_id'], row['speed'], row['order_id'])
 
-# --- 7. تشغيل الـ Stream ---
 print("🚀 Pipeline is LIVE! Watching for high-speed couriers...")
 
 query = final_alerts.writeStream \

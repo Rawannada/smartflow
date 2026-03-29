@@ -3,52 +3,60 @@ import pandas as pd
 from sqlalchemy import create_engine
 import plotly.express as px
 
-# 1. Page Config
-st.set_page_config(page_title="SmartFlow Logistics", layout="wide", page_icon="🚚")
+st.set_page_config(page_title="SmartFlow", layout="wide", page_icon="🚚")
 
-# Clean Header
-st.title("🚚 SmartFlow: Logistics Performance")
+st.markdown("""
+    <style>
+    .block-container {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    h1 {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.5rem !important;
+        padding-top: 0px !important;
+    }
+    .stDeployButton {display:none;}
+    [data-testid="stMetricValue"] { font-size: 1.2rem !important; }
+    [data-testid="stMetricLabel"] { font-size: 0.8rem !important; }
+    iframe { height: 200px !important; }
+    </style>
+    """, unsafe_content_path=True)
 
-# 2. Database Connection
 try:
-    engine = create_engine('postgresql://admin:password123@postgres:5432/logistics_db')
+    engine = create_engine('postgresql://admin:password123@localhost:5432/logistics_db')
     df = pd.read_sql("SELECT * FROM public_analytics.courier_performance", engine)
     
-    st.sidebar.success("Database Connected")
+    cols = st.columns([3, 1])
+    cols[0].title("🚚 SmartFlow Logistics")
+    if not df.empty:
+        cols[1].success("Connected", icon="✅")
 
-    # 3. Key Metrics (Compact Row)
     m1, m2, m3, m4 = st.columns(4)
-    m1.metric("Total Couriers", len(df))
-    m2.metric("Avg Speed", f"{df['avg_speed'].mean():.1f} km/h")
-    m3.metric("High Risk", len(df[df['risk_level'].str.contains('Risk')]), delta="Danger", delta_color="inverse")
-    m4.metric("Top Performers", len(df[df['performance_status'] == 'Top Performer']))
+    m1.metric("Total", len(df))
+    m2.metric("Avg Speed", f"{df['avg_speed'].mean():.1f}")
+    m3.metric("High Risk", len(df[df['risk_level'].str.contains('Risk')]))
+    m4.metric("Top Perf.", len(df[df['performance_status'] == 'Top Performer']))
 
-    st.divider()
-
-    # 4. Charts Row (Reduced Height)
     c1, c2 = st.columns([1, 1])
 
     with c1:
-        st.caption("🎯 Risk Distribution")
-        fig = px.pie(df, names='risk_level', hole=0.5, height=300,
+        fig = px.pie(df, names='risk_level', hole=0.7, height=180,
                      color='risk_level',
-                     color_discrete_map={'Safe': '#2ecc71', 'Moderate': '#f1c40f', 'High Risk': '#e67e22', 'Extreme Risk': '#e74c3c'})
-        fig.update_layout(margin=dict(t=0, b=0, l=0, r=0))
-        st.plotly_chart(fig, use_container_width=True)
+                     color_discrete_map={'Safe': '#2ecc71', 'Low Risk': '#a2d149', 'Moderate': '#f1c40f', 'High Risk': '#e67e22', 'Extreme Risk': '#e74c3c'})
+        fig.update_layout(margin=dict(t=10, b=10, l=0, r=0), showlegend=False)
+        st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False})
 
     with c2:
-        st.caption("📊 Speed Deviation")
-        st.bar_chart(df.set_index('courier_id')['speed_deviation'], height=300)
+        st.bar_chart(df.set_index('courier_id')['speed_deviation'], height=180)
 
-    # 5. Analysis Table
-    st.caption("📋 Analysis Detail")
-    
-    def style_risk(val):
-        color = '#ff4b4b' if 'Extreme' in val else '#ffa500' if 'High' in val else '#2ecc71' if 'Safe' in val else 'none'
-        return f'color: {color}; font-weight: bold'
-
-    st.dataframe(df.style.applymap(style_risk, subset=['risk_level']), use_container_width=True)
+    st.dataframe(
+        df.style.applymap(lambda x: f"color: {'#ff4b4b' if 'Extreme' in str(x) else '#2ecc71' if 'Safe' in str(x) else 'none'}; font-weight: bold", subset=['risk_level']), 
+        use_container_width=True, 
+        height=200
+    )
 
 except Exception as e:
-    st.sidebar.error("Connection Failed")
-    st.error(f"Error: {e}")
+    st.error(f"Waiting for Data: {e}")
