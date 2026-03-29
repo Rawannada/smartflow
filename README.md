@@ -15,7 +15,7 @@ In the modern logistics and supply chain industry, a delayed insight is ineffect
 ## 2. System Architecture Overview
 The architecture implements a **Decoupled Hybrid Pipeline** (Lambda-inspired) orchestrated entirely via Docker. It ensures that the **Hot Path** (Real-time Alerting via Spark) operates independently from the **Cold Path** (Analytical Transformation via dbt).
 
-![System Architecture](data_struct.png)
+![System Architecture](struct.png)
 
 ---
 
